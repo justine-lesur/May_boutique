@@ -25,19 +25,19 @@
 						
 				?>			
 						<li><a href="mon-profil.php">Profil</a></li>
-  						<li><a href="categories-produits/hommes/hommes.php">Hommes</a>
+  						<li><a href="hommes.php">Hommes</a>
    							 <ul>
-     							 <li><a href="categories-produits/hommes/pantalon-homme.php">Pantalons</a></li>
-     							 <li><a href="categories-produits/hommes/haut-homme.php">Hauts</a></li>
-     							 <li><a href="categories-produits/hommes/short-homme.php">Shorts</a></li>
+     							 <li><a href="pantalon-homme.php">Pantalons</a></li>
+     							 <li><a href="haut-homme.php">Hauts</a></li>
+     							 <li><a href="short-homme.php">Shorts</a></li>
     						 </ul>
   						</li>
-  						<li><a href="categories-produits/femmes/femmes.php">Femmes</a>
+  						<li><a href="femmes.php">Femmes</a>
    							 <ul>
-     							 <li><a href="categories-produits/femmes/pantalon-femme.php">Pantalons</a></li>
-     							 <li><a href="categories-produits/femmes/haut-femme.php">Hauts</a></li>
-     							 <li><a href="categories-produits/femmes/jupe-femme.php">Jupes</a></li>
-     							 <li><a href="categories-produits/femmes/robe-femme.php">Robes</a></li>
+     							 <li><a href="pantalon-femme.php">Pantalons</a></li>
+     							 <li><a href="haut-femme.php">Hauts</a></li>
+     							 <li><a href="jupe-femme.php">Jupes</a></li>
+     							 <li><a href="robe-femme.php">Robes</a></li>
     						 </ul>
   						</li>
 						<li><a href="panier.php">Panier</a></li>
@@ -52,7 +52,9 @@
 						if ($rows['id_droits'] == 10)
 		
 						{
-							?><li><a href="admin.php">Admin</a></li><?php
+							?><li><a href="admin.php">Admin</a></li>
+							  <li><a href="creer-produit.php">Créer produit</a></li>
+							<?php
 						}
 
 					?>

@@ -1,6 +1,5 @@
 <?php
 require "justine-class.php";
-include('header.php');
 $var = new user;
 
 $var->connect();
@@ -15,6 +14,9 @@ $var->connect();
 </head>
 
 <body>
+<?php
+include('header.php');
+?>
 	<form method="post" action="connexion.php">
 		<input type="text" name="login" placeholder="Login" required/>
 		<input type="password" name="password" placeholder="Mot de passe" required/>

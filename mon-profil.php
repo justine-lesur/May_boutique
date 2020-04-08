@@ -1,5 +1,4 @@
 <?php
-session_start();
 require "justine-class.php";
 $var = new user;
 
@@ -14,6 +13,9 @@ $var = new user;
 </head>
 
 <body>
+<?php
+include('header.php');
+?>
 	<form method="post">
 		<section>
 		<?php $var->updatelogin();?>

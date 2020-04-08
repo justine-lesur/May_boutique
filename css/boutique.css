@@ -51,3 +51,8 @@ body {
 #menu li ul {
  position:absolute;
  }
+
+footer {
+	display: flex;
+	flex-direction: row;
+}
