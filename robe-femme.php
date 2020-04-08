@@ -4,15 +4,15 @@ session_start();
 
 $connexion = mysqli_connect("localhost","root","","boutique");
 
-$requete = "SELECT * FROM `articles` WHERE id_categorie = 1 ORDER BY date DESC";
+$requete = "SELECT * FROM `articles` WHERE id_categorie = 1 AND id_type = 2 ORDER BY date DESC";
 $query = mysqli_query($connexion, $requete);
 $resultat = mysqli_fetch_all($query);
 
-$requete1 = "SELECT * FROM `articles` WHERE id_categorie = 1 ORDER BY prix ASC";
+$requete1 = "SELECT * FROM `articles` WHERE id_categorie = 1 AND id_type = 2 ORDER BY prix ASC";
 $query1 = mysqli_query($connexion, $requete1);
 $resultat1 = mysqli_fetch_all($query1);
 
-$requete2 = "SELECT * FROM `articles` WHERE id_categorie = 1 ORDER BY prix DESC";
+$requete2 = "SELECT * FROM `articles` WHERE id_categorie = 1 AND id_type = 2 ORDER BY prix DESC";
 $query2 = mysqli_query($connexion, $requete2);
 $resultat2 = mysqli_fetch_all($query2);
 
@@ -74,32 +74,3 @@ $resultat2 = mysqli_fetch_all($query2);
     </section> 
 </main>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
