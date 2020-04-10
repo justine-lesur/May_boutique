@@ -18,6 +18,7 @@ $resultat2 = mysqli_fetch_all($query2);
 
 
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
