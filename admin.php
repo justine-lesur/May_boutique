@@ -1,25 +1,17 @@
 <?php
 
 session_start();
-ob_start();
-////////// UTILISATEURS //////////
 
-$connexion = mysqli_connect("localhost","root","","boutique");
-$requete_user = "SELECT * FROM `utilisateurs` WHERE id_droits = 1";
-$query_user = mysqli_query($connexion, $requete_user);
-$resultat_user = mysqli_fetch_all($query_user);
+ob_start();
 
 ////////// ARTICLES //////////
 
+$connexion = mysqli_connect("localhost","root","","boutique");
 $requete = "SELECT * FROM articles ORDER BY nom ASC";
 $query = mysqli_query($connexion, $requete);
 $resultat = mysqli_fetch_all($query);
 
-////////// VENTES //////////
 
-$requete_achat = "SELECT id, nom FROM articles ORDER BY achats DESC LIMIT 5";
-$query_achat = mysqli_query($connexion,$requete_achat);
-$resultat_achat = mysqli_fetch_all($query_achat);
 
 ////////// CATEGORIES //////////
 
@@ -41,115 +33,49 @@ $resultat_achat = mysqli_fetch_all($query_achat);
 
 // if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
 
-        <main>
-            <section>
-
-<!-- ////////// TABLEAU UTILISATEURS ////////// -->
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Login</th>
-                            <th>Password</th>
-                            <th>Email</th>
-                            <th>Supprimer</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-<?php 
-                    foreach($resultat_user as $users):
-?>
-                        <tr>
-                            <td><?php echo $users[1] ?></td>
-                            <td><?php echo $users[2] ?></td>
-                            <td><?php echo $users[3] ?></td>
-                            <td><a href="delete.php?id=<?php echo $users[0] ?>"><img src="img/Button-Delete-icon.png" alt="delete" id="but-img-del"></a></td>
-                        </tr>
-<?php
-                    endforeach;
-?>
-                    </tbody>
-                </table>
+        <main class="main-container">
+            <section class="sec-container">
+                <nav class="nav-container">
+                    <ul class="ul-container">
+                        <a href="admin.php" class="lien-nav lien-lonely"><li>Admin</li></a>
+                        <a href="creer-produit.php" class="lien-nav lien-nav2 lien-lonely2"><li>Créer un produit</li></a>
+                        <a href="edit-user-admin.php" class="lien-nav lien-nav2 lien-lonely3"><li>Gestion utilisateurs</li></a>
+                        <a href="gestion-categorie.php" class="lien-nav lien-nav2 lien-lonely4"><li>Gestion catégories</li></a>
+                        <a href="" class="lien-nav lien-nav2 lien-lonely5"><li>Gestion commandes</li></a>
+                        <a href="topsale-admin.php" class="lien-nav lien-nav2 lien-lonely6"><li>Top 5 ventes</li></a>
+                    </ul>
+                </nav>
+                    <section class="sec-container2">
 
 <!-- ////////// TABLEAU PRODUITS ////////// -->
+                        <div class="box-title">
+                            <h1 class="title-admin">Liste des produits</h1>
+                        </div>
+                        <table id="admin-table">
+                            <thead>
+                                <tr>
+                                    <th class="th" id="admin-nameth">Nom</th>
+                                    <th class="th" id="admin-priceth">Prix</th>
+                                    <th class="th admin-dedith">Modifier</th>
+                                    <th class="th admin-dedith">Supprimer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nom</th>
-                            <th>Prix</th>
-                            <th>Modifier</th>
-                            <th>Supprimer</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-<?php
-                    foreach($resultat as $key => $value):
-?>           
-                        <tr>
-                            <td><?php echo $value[1] ?></td>
-                            <td><?php echo $value[6]?> €</td>
-                            <td><a href="edit-admin.php?idprod=<?php echo $value[0] ?>"><img src="img/modif.png" alt="modifier" id="but-img-edit"></a></td>
-                            <td><a href="delete.php?id=<?php echo $value[0] ?>"><img src="img/Button-Delete-icon.png" alt="delete" id="but-img-del"></a></td>
-                        </tr>
-<?php
-                    endforeach;
-?>
-                    </tbody>
-                </table>
+<?php foreach($resultat as $key => $value): ?>
 
-<!-- ////////// TABLEAU VENTES ////////// -->
+                                <tr id="admin-prodtr">
+                                    <td class="td"><?php echo $value[1] ?></td>
+                                    <td  class="td"><?php echo $value[6]?> €</td>
+                                    <td  class="td"><a href="edit-admin.php?idprod=<?php echo $value[0] ?>" class="admin-dedien"><img src="img/modif.png" alt="modifier" id="admin-edit-img"></a></td>
+                                    <td  class="td"><a href="delete-produit.php?id=<?php echo $value[0] ?>" class="admin-dedien"><img src="img/Button-Delete-icon.png" alt="delete" id="admin-del-img"></a></td>
+                                </tr>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <h1>Les meilleures ventes</h1>
-                        </tr>
-                    </thead>
-                    <tbody>
-<?php
-                    foreach($resultat_achat as $achat):
-?>
-                        <tr>
-                            <td><?php echo $achat[1] ?></td>
-                        </tr>
-<?php
-                    endforeach; 
-?>
-                    </tbody>
-                </table>
+<?php endforeach; ?>
 
-<!-- ////////// ADD CAT ////////// -->
-<?php
-    if(isset($_POST["cat-add"])){
-        $categorie = filter_input(INPUT_POST,"add-categorie");
-
-        $req_add_cat = "INSERT INTO `categories`(`id`, `nom`) VALUES (null, '".$categorie."')";
-        $que_add_cat = mysqli_query($connexion,$req_add_cat);
-        $res_add_cat = mysqli_fetch_all($que_add_cat);
-        header("location: admin.php");
-    }
-?>
-                <form action="" method="post">
-                    <label for="add-categorie">Ajouter une catégorie</label>
-                    <input type="text" name="add-categorie">
-                    <input type="submit" name="cat-add">
-                </form>
-<?php
-    if(isset($_POST["typ-add"])){
-        $types = filter_input(INPUT_POST,"add_types");
-
-        $req_add_types = "INSERT INTO `types`(`id`, `nom`) VALUES (null, '".$types."')";
-        $que_add_types = mysqli_query($connexion, $req_add_types);
-        $res_add_types = mysqli_fetch_all($que_add_types);
-        header("location:admin.php");
-    }
-?>
-                <form action="" method="post">
-                    <label for="add-types">Ajouter une sous catégorie</label>
-                    <input type="text" name="add_types">
-                    <input type="submit" name="typ-add">
-                </form>
+                            </tbody>
+                        </table>
+                    </section>
             </section>
         </main>
 <?php
@@ -158,3 +84,4 @@ ob_end_flush();
 
     </body>
 </html>
+

@@ -2,6 +2,7 @@
 
 session_start();
 
+ob_start();
 
 $connexion = mysqli_connect("localhost","root","","boutique");
 $idproduit = $_GET["idprod"];
@@ -13,11 +14,19 @@ $resultat = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 <!-- // if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10):  -->
 
-<form action="edit-admin.php?idprod=<?php echo $idproduit ?>" method="post">
-    <input type="text" name="nom" value="<?php echo $resultat[0]["nom"] ?>">
-    <input type="number" name="prix" step="0.01" value="<?php echo $resultat[0]["prix"] ?>">
-    <input type="submit" name="modifier">
-</form>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <main>
+            <form action="edit-admin.php?idprod=<?php echo $idproduit ?>" method="post">
+                <input type="text" name="nom" value="<?php echo $resultat[0]["nom"] ?>">
+                <input type="number" name="prix" step="0.01" value="<?php echo $resultat[0]["prix"] ?>">
+                <input type="submit" name="modifier">
+            </form>
 <?php
 
 if(isset($_POST["modifier"])){
@@ -29,5 +38,8 @@ if(isset($_POST["modifier"])){
     header("Location:admin.php");
 }
 
-
-?>
+ob_end_flush();
+// endif; ?>
+        </main>
+    </body>
+</html>

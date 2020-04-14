@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Oswald&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
+
+
+
+
+
 body, html{
     height: 100%;
     width: 100%;
@@ -5,10 +15,263 @@ body, html{
     padding: 0;
 }
 
-#but-img-edit{
+
+
+/*////////// NAV //////////*/
+
+.main-container{
+    background-color: #213b58;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sec-container{
+    width: 85%;
+    height: 85%;
+    background-color: #f6f7f7;
+    overflow: hidden;
+    position: relative;
+    border-radius: 3px 1px 0px 0px;
+}
+
+.sec-container2{
+    height: 92%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: -15px;
+    overflow: auto;
+    background-color: #f6f7f7;
+    z-index: 100;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.nav-container{
+    background-color: #213b58;
+    border-radius: 3px 1px 0px 0px;
+}
+
+.ul-container{
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around;
+    border-radius: 3px 1px 0px 0px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.lien-nav{
+    flex-basis: 17%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    text-decoration: none;
+    color: black;
+    border-radius: 0px 3px 0px 0px;
+    background-color: #f6f7f7;
+}
+
+.lien-lonely{
+    z-index: 70;
+    box-shadow: 0px 0px 8px black;
+}
+
+.lien-lonely2{
+    z-index: 60;
+}
+
+.lien-lonely3{
+    z-index: 50;
+}
+
+.lien-lonely4{
+    z-index: 40;
+}
+
+.lien-lonely5{
+    z-index: 30;
+}
+
+.lien-lonely6{
+    z-index: 20;
+}
+
+.lien-nav2{
+    opacity: 0.7;
+    box-shadow: 0px 0px 8px black
+}
+
+/*/////////// ADMIN //////////*/
+
+#admin-table{
+    width: 80%;
+    border-collapse: collapse;
+    margin: auto;
+    background-color: #fbfdff;
+    margin-bottom: 20px;
+    border: 3px ridge black;
+    box-shadow: 0px 1px 6px black;
+    margin-top: 7%;
+}
+
+#admin-nameth{
+    width: 40%;
+}
+
+#admin-priceth{
+    width: 10%;
+}
+
+.admin-dedith{
+    width: 7%;
+}
+
+.title-admin{
+    text-align: center;
+    font-family: 'Poiret One', cursive;
+    font-size: 30px;
+    margin: 0;
+}
+
+#titre-admin-produit::after{
+    content: " -";
+    position: relative;
+    color: fuchsia;
+    top: 5px;
+}
+
+#titre-admin-produit::before{
+    content: "- ";
+    position: relative;
+    color: orange;
+    top: 5px;
+}
+
+.td{
+    text-align: center;
+    text-overflow: ellipsis;
+    border: 1px solid black;
+    padding: 2% 0;
+}
+
+.box-title{
+    background-color: #F6F7F7;
+    position: fixed;
+    width: 85%;
+    padding: 2% 0;
+}
+
+#admin-prodtr:hover{
+    background-color: #80d6184d;
+}
+
+.th{
+    border: 1px solid black;
+    padding: 1% 0;
+    background-image: url(../img/fond.jpg);
+    background-position-y: 125px;
+    color: white;
+}
+
+.admin-dedien{
+    display: flex;
+    justify-content: center;
+}
+
+#admin-edit-img{
+    width: 25%;
+}
+
+#admin-del-img{
+    width: 23%;
+}
+
+#admin-edit-img:hover{
+    transform: scale(1.1);
+}
+
+#admin-del-img:hover{
+    transform: scale(1.1);
+}
+
+#but-cat-del{
+    width: 1%;
+}
+
+#img-upadmin{
+    width: 15%;
+    border: 3px ridge red;
+    border-radius: 33px;
+}
+#img-downuser{
+    width: 4%;
+    border-radius: 36px;
+}
+
+#img-upadmin:hover, #img-downuser:hover{
+    transform: scale(1.1);
+}
+
+
+/*////////// TOP VENTES //////////*/
+
+
+
+#table-topvente{
+    margin: auto;
+    margin-top: 7%;
+    width: 50%;
+    height: 80%;
+}
+
+#font-table-topvente{
+    position: absolute;
+    width: 50%;
+    height: 80%;
+    background-image: url(../img/top5.jpg);
+    z-index: -1;
+    top: 15%;
+    left: 24.7%;
+    border: 5px ridge black;
+    opacity: 0.7;
+}
+
+#vente-tr{
+    background-color: #2a134aab;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    font-weight: bold;
+}
+
+#vente-tr:hover{
+    background-color: #213B58;
+}
+
+#t1-img{
+    position: absolute;
+    width: 16.9%;
+    left: 25%;
+    top: 16%;
+}
+
+
+/*/////////// USERS //////////*/
+
+
+
+#img-del-user{
     width: 5%;
 }
 
-#but-img-del{
-    width: 10%;
+#flex-divuser{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: overlay;
 }

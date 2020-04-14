@@ -1,13 +1,10 @@
 <?php
+
     $connexion = mysqli_connect("localhost", "root", "", "boutique");
     $delete = $_GET["id"];
-    $requete = "DELETE FROM articles WHERE id = '$delete'";
+    $requete = "DELETE FROM utilisateurs WHERE id = '$delete'";
     $query = mysqli_query($connexion, $requete);
-    header("Location:admin.php");
+    header("Location:edit-user-admin.php");
     die();
-    
-    
-
-    $requete = "DELETE FROM utilisateurs"
 
 ?>
