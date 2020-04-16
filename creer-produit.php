@@ -20,51 +20,88 @@ session_start();
 <html>
     <head>
         <meta charset="utf8">
+        <link rel="stylesheet" href="css/style.css">
     </head>
-    <main>
+    <body>
         
 <?php 
 
-// if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): 
+// if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
+        <main class="main-container">
+            <section class="sec-container">
+                <nav class="nav-container">
+                    <ul class="ul-container">
+                        <a href="admin.php" class="lien-nav lien-nav2 lien-lonely2"><li>Admin</li></a>
+                        <a href="creer-produit.php" class="lien-nav lien-lonely"><li>Créer un produit</li></a>
+                        <a href="edit-user-admin.php" class="lien-nav lien-nav2 lien-lonely3"><li>Gestion utilisateurs</li></a>
+                        <a href="gestion-categorie.php" class="lien-nav lien-nav2 lien-lonely4"><li>Gestion catégories</li></a>
+                        <a href="display-commandes.php" class="lien-nav lien-nav2 lien-lonely5"><li>Gestion commandes</li></a>
+                        <a href="topsale-admin.php" class="lien-nav lien-nav2 lien-lonely6"><li>Top 5 ventes</li></a>
+                    </ul>
+                </nav>
+                <section class="sec-container2">
+                    <div class="box-title">
+                        <h1 class="title-admin">Ajouter un produit</h1>
+                    </div> 
+                    <form action="creer-produit.php" method="post" enctype="multipart/form-data" id="tab-creprod">
+                        <div id="box-creame">
+                            <label for="nom" class="inpcenter" id="lab-creame">Nom de l'article</label>
+                            <input type="text" name="nom" id="inp-creame" required>
+                        </div>
 
-?>
+                        <div class="box-catypri">
+                            <label for="id_categorie" class="inpcenter lab-crea">Catégorie</label>
+                            <input type="number" name="id_categorie" class="inp-creacaty"  required>
+                        </div>
 
-        <h1>Ajouter un article</h1>
-        <form action="creer-produit.php" method="post" enctype="multipart/form-data">
-            <label for="nom">Nom de l'article : </label>
-            <input type="text" name="nom" required>
+                        <div class="box-catypri">
+                            <label for="id_type" class="inpcenter lab-crea">Type</label>
+                            <input type="number" name="id_type" class="inp-creacaty" required>
+                        </div>
 
-            <label for="id_categorie">Catégorie : </label>
-            <input type="number" name="id_categorie" required>
+                        <div id="box-img">
+                            <label for="image" id="lab-crimg">Image</label>
+                            <input type="file" name="image" id="inp-img" required>
+                        </div>
 
-            <label for="id_type">Type : </label>
-            <input type="number" name="id_type" required>
+                        <div id="box-desc">
+                            <label for="description" class="inpcenter lab-crea">Description </label>
+                            <textarea name="description" cols="30" rows="10" id="crea-area" required></textarea>
+                        </div>
 
-            <label for="image">Lien image : </label>
-            <input type="file" name="image" required>
+                        <div class="box-catypri">
+                            <label for="prix" class="inpcenter lab-crea">Prix</label>
+                            <input type="number" name="prix" id="inprice" placeholder="0 €" step="0.01" required>
+                        </div>
 
-            <label for="description">Description : </label>
-            <textarea name="description" id="" cols="30" rows="10" required></textarea>
+                        <div id="box-date">
+                            <label for="date" id="labdate">Date d'ajout : </label>
+                            <input type="date" name="date" id="inp-credat" id="date-size" required>
+                        </div>
+                        <div id="box-sizeinp">
+                            <div>
+                                <h4 id="title-boxlabinp">Tailles</h4>
+                            </div>
+                            <div id="box-labinp">
+                                <div>
+                                    <label for="ts" class="inpcenter">S</label>
+                                    <input type="number" name="ts" class="inpsize" placeholder="0" required>
+                                </div>
 
-            <label for="prix">Prix : </label>
-            <input type="number" name="prix" step="0.01" required>
+                                <div>
+                                    <label for="tm" class="inpcenter">M</label>
+                                    <input type="number" name="tm" class="inpsize" placeholder="0" required>
+                                </div>
 
-            <label for="date">Date d'ajout : </label>
-            <input type="date" name="date" required>
+                                <div>
+                                    <label for="tl" class="inpcenter">L</label>
+                                    <input type="number" name="tl" class="inpsize" placeholder="0" required>
+                                </div>
+                            </div>
+                        </div>
 
-            <label for="ts">Taille S : </label>
-            <input type="number" name="ts" required>
-
-            <label for="tm">Taille M : </label>
-            <input type="number" name="tm" required>
-
-            <label for="tl">Taille L : </label>
-            <input type="number" name="tl" required>
-
-            <input type="text" name="achat">
-
-            <input type="submit" name="creer">
-        </form>
+                        <input type="submit" name="creer" id="inp-create-prod" value="Ajouter">
+                    </form>
 <?php 
 
 // elseif(empty($_SESSION["login"]) || $_SESSION["id_droits"] == 1):
@@ -73,8 +110,11 @@ session_start();
 
 // endif;
 
-?>
-    </main>
+?> 
+                </section>
+            </section>
+        </main>
+    </body>
 </html>    
 
 <?php
@@ -125,8 +165,8 @@ if(isset($_POST["creer"])):
     if(!empty($name) && !empty($cat) && !empty($type) && !empty($img) && !empty($text) && !empty($price) && !empty($date) && !empty($taille1) && !empty($taille2) && !empty($taille3)):
 
         $connexion = mysqli_connect("localhost","root","","boutique");
-        $requete = "INSERT INTO articles VALUES (null,'".$name."',$cat,$type,'".$img."','".$text."',$price,'".$date."',$taille1,$taille2,$taille3,$achat)";
-        echo $requete;
+        $requete = "INSERT INTO articles VALUES (null,'".$name."',$cat,$type,'".$img."','".$text."',$price,'".$date."',$taille1,$taille2,$taille3,0)";
+        // echo $requete;
         $query = mysqli_query($connexion,$requete);
 
     else:

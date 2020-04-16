@@ -41,7 +41,7 @@ $resultat = mysqli_fetch_all($query);
                         <a href="creer-produit.php" class="lien-nav lien-nav2 lien-lonely2"><li>Créer un produit</li></a>
                         <a href="edit-user-admin.php" class="lien-nav lien-nav2 lien-lonely3"><li>Gestion utilisateurs</li></a>
                         <a href="gestion-categorie.php" class="lien-nav lien-nav2 lien-lonely4"><li>Gestion catégories</li></a>
-                        <a href="" class="lien-nav lien-nav2 lien-lonely5"><li>Gestion commandes</li></a>
+                        <a href="display-commandes.php" class="lien-nav lien-nav2 lien-lonely5"><li>Gestion commandes</li></a>
                         <a href="topsale-admin.php" class="lien-nav lien-nav2 lien-lonely6"><li>Top 5 ventes</li></a>
                     </ul>
                 </nav>
@@ -53,22 +53,23 @@ $resultat = mysqli_fetch_all($query);
                         </div>
                         <table id="admin-table">
                             <thead>
-                                <tr>
-                                    <th class="th" id="admin-nameth">Nom</th>
-                                    <th class="th" id="admin-priceth">Prix</th>
-                                    <th class="th admin-dedith">Modifier</th>
-                                    <th class="th admin-dedith">Supprimer</th>
+                                <tr id="tr-admin">
+                                    <th class="thmin" id="admin-nameth">Nom</th>
+                                    <th class="thmin" id="admin-priceth">Prix</th>
+                                    <th class="thmin admin-dedith">Modifier</th>
+                                    <th class="thmin admin-dedith">Supprimer</th>
                                 </tr>
                             </thead>
+                            <div id="shadow-box"></div>
                             <tbody>
 
 <?php foreach($resultat as $key => $value): ?>
 
                                 <tr id="admin-prodtr">
-                                    <td class="td"><?php echo $value[1] ?></td>
-                                    <td  class="td"><?php echo $value[6]?> €</td>
-                                    <td  class="td"><a href="edit-admin.php?idprod=<?php echo $value[0] ?>" class="admin-dedien"><img src="img/modif.png" alt="modifier" id="admin-edit-img"></a></td>
-                                    <td  class="td"><a href="delete-produit.php?id=<?php echo $value[0] ?>" class="admin-dedien"><img src="img/Button-Delete-icon.png" alt="delete" id="admin-del-img"></a></td>
+                                    <td class="tdmin" id="tdmin1"><?php echo $value[1] ?></td>
+                                    <td  class="tdmin" id="tdmin2"><?php echo $value[6]?> €</td>
+                                    <td  class="tdmin tdmin-model"><a href="edit-admin.php?idprod=<?php echo $value[0] ?>" class="admin-dedien"><img src="img/modif.png" alt="modifier" id="admin-edit-img"></a></td>
+                                    <td  class="tdmin tdmin-model"><a href="delete-produit.php?id=<?php echo $value[0] ?>" class="admin-dedien"><img src="img/Button-Delete-icon.png" alt="delete" id="admin-del-img"></a></td>
                                 </tr>
 
 <?php endforeach; ?>

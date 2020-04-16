@@ -21,12 +21,28 @@ $resultat = mysqli_fetch_all($query, MYSQLI_ASSOC);
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <main>
-            <form action="edit-admin.php?idprod=<?php echo $idproduit ?>" method="post">
-                <input type="text" name="nom" value="<?php echo $resultat[0]["nom"] ?>">
-                <input type="number" name="prix" step="0.01" value="<?php echo $resultat[0]["prix"] ?>">
-                <input type="submit" name="modifier">
-            </form>
+        <main class="main-container">
+            <section class="sec-container">
+                <nav class="nav-container">
+                    <ul class="ul-container">
+                        <a href="admin.php" class="lien-nav lien-lonely"><li>Admin</li></a>
+                        <a href="creer-produit.php" class="lien-nav lien-nav2 lien-lonely2"><li>Créer un produit</li></a>
+                        <a href="edit-user-admin.php" class="lien-nav lien-nav2 lien-lonely3"><li>Gestion utilisateurs</li></a>
+                        <a href="gestion-categorie.php" class="lien-nav lien-nav2 lien-lonely4"><li>Gestion catégories</li></a>
+                        <a href="display-commandes.php" class="lien-nav lien-nav2 lien-lonely5"><li>Gestion commandes</li></a>
+                        <a href="topsale-admin.php" class="lien-nav lien-nav2 lien-lonely6"><li>Top 5 ventes</li></a>
+                    </ul>
+                </nav>
+                    <section class="sec-container2">
+                        <section id="sec-for-edit">
+                            <form action="edit-admin.php?idprod=<?php echo $idproduit ?>" method="post" id="form-editadm">
+                                <label for="nom" class="labnp">Modifier le nom</label>
+                                <input type="text" name="nom" value="<?php echo $resultat[0]["nom"] ?>" class="inp-prod">
+                                <label for="prix" class="labnp">Modifier le prix</label>
+                                <input type="number" name="prix" step="0.01" value="<?php echo $resultat[0]["prix"] ?>" class="inp-prod">
+                                <input type="submit" name="modifier" value="Modifier" id="inp-modif-prod">
+                            </form>
+                        </section>
 <?php
 
 if(isset($_POST["modifier"])){
@@ -40,6 +56,8 @@ if(isset($_POST["modifier"])){
 
 ob_end_flush();
 // endif; ?>
+                    </section>
+            </section>
         </main>
     </body>
 </html>

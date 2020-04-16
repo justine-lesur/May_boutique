@@ -33,12 +33,14 @@ $resultat_achat = mysqli_fetch_all($query_achat);
                         <a href="creer-produit.php" class="lien-nav lien-nav2 lien-lonely3"><li>Créer un produit</li></a>
                         <a href="edit-user-admin.php" class="lien-nav lien-nav2 lien-lonely4"><li>Gestion utilisateurs</li></a>
                         <a href="gestion-categorie.php" class="lien-nav lien-nav2 lien-lonely5"><li>Gestion catégories</li></a>
-                        <a href="" class="lien-nav lien-nav2 lien-lonely6"><li>Gestion commandes</li></a>
+                        <a href="display-commandes.php" class="lien-nav lien-nav2 lien-lonely6"><li>Gestion commandes</li></a>
                         <a href="topsale-admin.php" class="lien-nav lien-lonely"><li>Top 5 ventes</li></a>
                     </ul>
                 </nav>
                 <section class="sec-container2">
+
 <!-- ////////// TABLEAU VENTES ////////// -->
+
                     <div id="font-table-topvente"></div>
                     <table id="table-topvente">
                         <thead>
@@ -48,11 +50,15 @@ $resultat_achat = mysqli_fetch_all($query_achat);
                         </thead>
                         <tbody>
                             <img src="img/t1.png" id="t1-img" alt="top1">
+
 <?php foreach($resultat_achat as $achat): ?>
+
                             <tr id="vente-tr">
                                 <td><?php echo $achat[1] ?></td>
                             </tr>
+
 <?php endforeach; ?>
+
                         </tbody>
                     </table>
                 </section>

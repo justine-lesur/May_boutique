@@ -37,7 +37,7 @@ $resultat_admin = mysqli_fetch_all($query_admin);
                         <a href="creer-produit.php" class="lien-nav lien-nav2 lien-lonely3"><li>Créer un produit</li></a>
                         <a href="edit-user-admin.php" class="lien-nav lien-lonely"><li>Gestion utilisateurs</li></a>
                         <a href="gestion-categorie.php" class="lien-nav lien-nav2 lien-lonely4"><li>Gestion catégories</li></a>
-                        <a href="" class="lien-nav lien-nav2 lien-lonely5"><li>Gestion commandes</li></a>
+                        <a href="display-commandes.php" class="lien-nav lien-nav2 lien-lonely5"><li>Gestion commandes</li></a>
                         <a href="topsale-admin.php" class="lien-nav lien-nav2 lien-lonely6"><li>Top 5 ventes</li></a>
                     </ul>
                 </nav>
@@ -47,18 +47,18 @@ $resultat_admin = mysqli_fetch_all($query_admin);
                     </div>
 <!-- ////////// TABLEAU UTILISATEURS ////////// -->
                     <div id="flex-divuser">
-                        <article id="art-user">
+                        <article class="art-droits">
                             <div>
-                                <h2 id="title-droit-user">Utilisateurs</h2>
+                                <h2 class="title-droits">Utilisateurs</h2>
                             </div>
-                            <table id="table-droit-user">
+                            <table class="table-droits">
                                 <thead>
-                                    <tr id="tr-foruser">
-                                        <th>ID</th>
-                                        <th>LOGIN</th>
+                                    <tr class="tr-droits">
+                                        <th class="id-eduser">ID</th>
+                                        <th class="log-eduser">LOGIN</th>
                                         <th>EMAIL</th>
-                                        <th>DROITS</th>
-                                        <th>DELETE</th>
+                                        <th class="droits-and-del">DROITS</th>
+                                        <th class="droits-and-del">DELETE</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tbody-droit-user">
@@ -66,11 +66,11 @@ $resultat_admin = mysqli_fetch_all($query_admin);
 <?php foreach($resultat_user as $users): ?>
 
                                     <tr>
-                                        <td><?php echo $users[0] ?></td>
-                                        <td><?php echo $users[1] ?></td>
-                                        <td><?php echo $users[3] ?></td>
-                                        <td><a href="upgrade-droit.php?id=<?php echo $users[0] ?>"><img src="img/admin.png" alt="admin" id="img-upadmin"></a></td>
-                                        <td><a href="delete-user.php?id=<?php echo $users[0] ?>"><img src="img/Button-Delete-icon.png" alt="delete" id="img-del-user"></a></td>
+                                        <td class="td-user-admin"><?php echo $users[0] ?></td>
+                                        <td class="td-user-admin"><?php echo $users[1] ?></td>
+                                        <td class="td-user-admin"><?php echo $users[3] ?></td>
+                                        <td class="td-user-admin"><a href="upgrade-droit.php?id=<?php echo $users[0] ?>" class="lien-updemdel"><img src="img/admin.png" alt="admin" id="img-upadmin"></a></td>
+                                        <td class="td-user-admin"><a href="delete-user.php?id=<?php echo $users[0] ?>" class="lien-updemdel"><img src="img/Button-Delete-icon.png" alt="delete" id="img-del-user"></a></td>
                                     </tr>
 
 <?php endforeach; ?>
@@ -79,18 +79,18 @@ $resultat_admin = mysqli_fetch_all($query_admin);
                             </table>
                         </article>
 
-                        <article id="art-admin">
+                        <article class="art-droits">
                             <div>
-                                <h2 id="title-droit-admin">Administrateurs</h2>
+                                <h2 class="title-droits" id="t-droits-ad">Administrateurs</h2>
                             </div>
-                            <table id="table-droit-admin">
+                            <table class="table-droits">
                                 <thead>
-                                    <tr id="tr-foradmin">
-                                        <th>ID</th>
-                                        <th>LOGIN</th>
+                                    <tr class="tr-droits">
+                                        <th class="id-eduser">ID</th>
+                                        <th class="log-eduser">LOGIN</th>
                                         <th>EMAIL</th>
-                                        <th>DROITS</th>
-                                        <th>DELETE</th>
+                                        <th class="droits-and-del">DROITS</th>
+                                        <th class="droits-and-del">DELETE</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tbody-droit-user">
@@ -98,11 +98,11 @@ $resultat_admin = mysqli_fetch_all($query_admin);
 <?php foreach($resultat_admin as $admin): ?>
 
                                     <tr>
-                                        <td><?php echo $admin[0] ?></td>
-                                        <td><?php echo $admin[1] ?></td>
-                                        <td><?php echo $admin[3] ?></td>
-                                        <td><a href="demote-droit.php?id=<?php echo $admin[0] ?>"><img src="img/user.png" alt="user" id="img-downuser"></a></td>
-                                        <td><a href="delete-user.php?id=<?php echo $admin[0] ?>"><img src="img/Button-Delete-icon.png" alt="delete" id="img-del-user"></a></td>
+                                        <td class="td-user-admin"><?php echo $admin[0] ?></td>
+                                        <td class="td-user-admin"><?php echo $admin[1] ?></td>
+                                        <td class="td-user-admin"><?php echo $admin[3] ?></td>
+                                        <td class="td-user-admin"><a href="demote-droit.php?id=<?php echo $admin[0] ?>" class="lien-updemdel"><img src="img/user.png" alt="user" id="img-downuser"></a></td>
+                                        <td class="td-user-admin"><a href="delete-user.php?id=<?php echo $admin[0] ?>" class="lien-updemdel"><img src="img/Button-Delete-icon.png" alt="delete" id="img-del-user"></a></td>
                                     </tr>
 
 <?php endforeach; ?>
