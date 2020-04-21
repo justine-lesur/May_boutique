@@ -75,9 +75,10 @@ session_start();
 					{
 						if (password_verify($_POST['password'],$rows['password']))
 						{
+							$_SESSION['id']=$rows['id'];
 							$_SESSION['login']=$login;
 							$_SESSION['password']=$password;
-							echo 'je suis connecté';
+							header("Location: index.php");
 					
 						} else echo "<p>Login ou Mot de passe incorrect</p>";
 				
@@ -115,7 +116,7 @@ session_start();
 					{
 						echo "<p>Pseudo ou Mot de passe incorrect</p>";	
 					}
-					$query3 = "UPDATE utilisateur SET login = '".$login."' WHERE login = '".$_SESSION['login']."'";
+					$query3 = "UPDATE utilisateurs SET login = '".$login."' WHERE login = '".$_SESSION['login']."'";
 						$reg3 = mysqli_query($connect, $query3);
 					
 			
@@ -156,5 +157,419 @@ session_start();
 			}
 		}
 	}
-  
+
+	class achat {
+		
+		private $host = 'localhost';
+		private $username = 'root';
+		private $password = '';
+		public $db= 'boutique';
+		
+		public function newarticles()
+		{
+			$connect = mysqli_connect($this->host, $this->username, $this->password, $this->db);
+			$query = "SELECT image FROM articles ORDER BY date DESC LIMIT 3";
+			$rows = mysqli_query($connect,$query);
+			return($rows);
+		}
+	}
+
+	class fan {
+		
+		private $host = 'localhost';
+		private $username = 'root';
+		private $password = '';
+		public $db= 'boutique';
+		
+		public function fanarticles()
+		{
+			$connect = mysqli_connect($this->host, $this->username, $this->password, $this->db);
+			$requete_achat = "SELECT image FROM articles ORDER BY achats DESC LIMIT 5";
+			$rows = mysqli_query($connect,$requete_achat);
+			return($rows);
+		}
+	}
+
+	class produits {
+		
+		private $host = 'localhost';
+		private $username = 'root';
+		private $password = '';
+		public $db= 'boutique';
+		
+		public function ordrefemme()
+		{
+			$connexion = mysqli_connect($this->host, $this->username, $this->password, $this->db);
+			$requete = "SELECT * FROM `articles` WHERE id_categorie = 1 ORDER BY date DESC";
+			$query = mysqli_query($connexion, $requete);
+			$resultat = mysqli_fetch_all($query);
+
+			$requete1 = "SELECT * FROM `articles` WHERE id_categorie = 1 ORDER BY prix ASC";
+			$query1 = mysqli_query($connexion, $requete1);
+			$resultat1 = mysqli_fetch_all($query1);
+
+			$requete2 = "SELECT * FROM `articles` WHERE id_categorie = 1 ORDER BY prix DESC";
+			$query2 = mysqli_query($connexion, $requete2);
+			$resultat2 = mysqli_fetch_all($query2);
+			?>
+			<section>
+				<form action="" method="post">
+					<select name="selectorder" id="essai">
+						<option value="recent">Plus Récent</option>
+						 <option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"){ echo "selected"; } ?> value="prixmini">Plus Bas Prix</option>
+						<option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"){ echo "selected"; } ?> value="prixmax">Prix Le Plus Élevé</option>
+						<input type="submit">    
+					</select>
+				</form>
+			</section>
+			<section>
+				<?php
+				if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "recent"):
+					foreach($resultat as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"):
+					foreach($resultat1 as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"):
+					foreach($resultat2 as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				else:
+					foreach($resultat as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				endif; ?>
+			 </section> 
+<?php
+		}
+		
+			public function ordrehomme()
+		{
+			$connexion = mysqli_connect($this->host, $this->username, $this->password, $this->db);
+			$requete = "SELECT * FROM `articles` WHERE id_categorie = 2 ORDER BY date DESC";
+			$query = mysqli_query($connexion, $requete);
+			$resultat = mysqli_fetch_all($query);
+
+			$requete1 = "SELECT * FROM `articles` WHERE id_categorie = 2 ORDER BY prix ASC";
+			$query1 = mysqli_query($connexion, $requete1);
+			$resultat1 = mysqli_fetch_all($query1);
+
+			$requete2 = "SELECT * FROM `articles` WHERE id_categorie = 2 ORDER BY prix DESC";
+			$query2 = mysqli_query($connexion, $requete2);
+			$resultat2 = mysqli_fetch_all($query2);
+			?>
+			<section>
+				<form action="" method="post">
+					<select name="selectorder" id="essai">
+						<option value="recent">Plus Récent</option>
+						 <option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"){ echo "selected"; } ?> value="prixmini">Plus Bas Prix</option>
+						<option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"){ echo "selected"; } ?> value="prixmax">Prix Le Plus Élevé</option>
+						<input type="submit">    
+					</select>
+				</form>
+			</section>
+			<section>
+				<?php
+				if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "recent"):
+					foreach($resultat as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"):
+					foreach($resultat1 as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"):
+					foreach($resultat2 as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				else:
+					foreach($resultat as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				endif; ?>
+			 </section> 
+<?php
+		}
+		
+			public function ordrehauthomme()
+		{
+			$connexion = mysqli_connect($this->host, $this->username, $this->password, $this->db);
+			$requete = "SELECT * FROM `articles` WHERE id_categorie = 2 AND id_type = 1 ORDER BY date DESC";
+			$query = mysqli_query($connexion, $requete);
+			$resultat = mysqli_fetch_all($query);
+
+			$requete1 = "SELECT * FROM `articles` WHERE id_categorie = 2 AND id_type = 1 ORDER BY prix ASC";
+			$query1 = mysqli_query($connexion, $requete1);
+			$resultat1 = mysqli_fetch_all($query1);
+
+			$requete2 = "SELECT * FROM `articles` WHERE id_categorie = 2 AND id_type = 1 ORDER BY prix DESC";
+			$query2 = mysqli_query($connexion, $requete2);
+			$resultat2 = mysqli_fetch_all($query2);
+			?>
+			<section>
+				<form action="" method="post">
+					<select name="selectorder" id="essai">
+						<option value="recent">Plus Récent</option>
+						 <option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"){ echo "selected"; } ?> value="prixmini">Plus Bas Prix</option>
+						<option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"){ echo "selected"; } ?> value="prixmax">Prix Le Plus Élevé</option>
+						<input type="submit">    
+					</select>
+				</form>
+			</section>
+			<section>
+				<?php
+				if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "recent"):
+					foreach($resultat as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"):
+					foreach($resultat1 as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"):
+					foreach($resultat2 as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				else:
+					foreach($resultat as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				endif; ?>
+			 </section> 
+
+<?php
+		}
+			public function ordrepantalonhomme()
+		{
+			$connexion = mysqli_connect($this->host, $this->username, $this->password, $this->db);
+			$requete = "SELECT * FROM `articles` WHERE id_categorie = 2 AND id_type = 4 ORDER BY date DESC";
+			$query = mysqli_query($connexion, $requete);
+			$resultat = mysqli_fetch_all($query);
+
+			$requete1 = "SELECT * FROM `articles` WHERE id_categorie = 2 AND id_type = 4 ORDER BY prix ASC";
+			$query1 = mysqli_query($connexion, $requete1);
+			$resultat1 = mysqli_fetch_all($query1);
+
+			$requete2 = "SELECT * FROM `articles` WHERE id_categorie = 2 AND id_type = 4 ORDER BY prix DESC";
+			$query2 = mysqli_query($connexion, $requete2);
+			$resultat2 = mysqli_fetch_all($query2);
+			?>
+			<section>
+				<form action="" method="post">
+					<select name="selectorder" id="essai">
+						<option value="recent">Plus Récent</option>
+						 <option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"){ echo "selected"; } ?> value="prixmini">Plus Bas Prix</option>
+						<option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"){ echo "selected"; } ?> value="prixmax">Prix Le Plus Élevé</option>
+						<input type="submit">    
+					</select>
+				</form>
+			</section>
+			<section>
+				<?php
+				if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "recent"):
+					foreach($resultat as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"):
+					foreach($resultat1 as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"):
+					foreach($resultat2 as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				else:
+					foreach($resultat as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				endif; ?>
+			 </section> 
+<?php
+		}
+		
+			public function ordreshorthomme()
+		{
+			$connexion = mysqli_connect($this->host, $this->username, $this->password, $this->db);
+			$requete = "SELECT * FROM `articles` WHERE id_categorie = 2 AND id_type = 5 ORDER BY date DESC";
+			$query = mysqli_query($connexion, $requete);
+			$resultat = mysqli_fetch_all($query);
+
+			$requete1 = "SELECT * FROM `articles` WHERE id_categorie = 2 AND id_type = 5 ORDER BY prix ASC";
+			$query1 = mysqli_query($connexion, $requete1);
+			$resultat1 = mysqli_fetch_all($query1);
+
+			$requete2 = "SELECT * FROM `articles` WHERE id_categorie = 2 AND id_type = 5 ORDER BY prix DESC";
+			$query2 = mysqli_query($connexion, $requete2);
+			$resultat2 = mysqli_fetch_all($query2);
+			?>
+			<section>
+				<form action="" method="post">
+					<select name="selectorder" id="essai">
+						<option value="recent">Plus Récent</option>
+						 <option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"){ echo "selected"; } ?> value="prixmini">Plus Bas Prix</option>
+						<option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"){ echo "selected"; } ?> value="prixmax">Prix Le Plus Élevé</option>
+						<input type="submit">    
+					</select>
+				</form>
+			</section>
+			<section>
+				<?php
+				if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "recent"):
+					foreach($resultat as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"):
+					foreach($resultat1 as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"):
+					foreach($resultat2 as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				else:
+					foreach($resultat as $article): ?>
+						<article>
+								<a href="produit.php?id=<?php echo $article[0]?>"><img src="<?php echo $article[4]?>" alt="mode"></a>
+								<h3><?php echo $article[1] ?></h3>
+								<span><?php echo $article[6] ?> €</span>
+						</article>
+					<?php endforeach;
+				endif; ?>
+			 </section> 
+<?php
+	}
+		
+			public function pageproduit()
+		{
+			$connexion = mysqli_connect($this->host, $this->username, $this->password, $this->db);
+			$requete = "SELECT * FROM articles WHERE id= '".$_GET["id"]."'";
+			$query = mysqli_query($connexion, $requete);
+			$resultat = mysqli_fetch_all($query);
+			        
+			foreach($resultat as $article): ?>
+					<article class="one-produit2">
+					  <div>
+                        <img src="<?php echo $article[4]?>" alt="mode" class='articles-produit'></a>
+					  </div>
+					  <div class="all-description">
+                        <h3 class="titre-produit"><?php echo $article[1] ?></h3>
+						<p class="description"><?php echo $article[5] ?> </p>
+               
+				<form action="panier.php" method="post">
+					<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"/>
+					<h4>Taille</h4>
+					<select name="taille" id="taille">
+						<option class="taille" value="S">Taille S</option>
+					 	<option class="taille" value="M">Taille M</option>
+						<option class="taille" value="L">Taille L</option>    
+					</select>
+					<h4>Quantité</h4>
+					<select name="quantite" id="quantite">
+						<option value="1">1</option>
+					 	<option value="2">2</option>
+						<option value="3">3</option>  
+						<option value="4">4</option>
+				   	<option value="5">5</option>  
+					</select>
+					<br/>
+						<div class="price">
+							<span class="prix"><?php echo $article[6] ?> €</span>
+						</div>
+					<br/>
+					<input type="submit" name="submit" class="submit2">  
+				</form>
+				</div>
+				</article>
+			<?php
+				if (isset($_POST['submit']))
+				{
+					$taille = $_POST['taille'];
+					$quantite = $_POST['quantite'];
+				}
+			?>
+            <?php endforeach;
+
+		}
+}
 ?>
+
+
+
