@@ -1,10 +1,17 @@
 html {
 	margin: 0px;
+	width: 100%;
+	height: 100%;
+	padding: 0px;
 }
 
 body {
 	margin: 0px;
+	width: 100%;
+	height: 100%;
+	padding: 0px;	
 }
+
 
 @font-face {
 	font-family: "Circular";
@@ -51,12 +58,19 @@ body {
 	 width: 90vw;
 }
 
-a {
+.header-link {
+	font-size: 1.5em;
+	list-style-type: none;
+	margin: 0px;
+	width: 7vw;
+}
+
+.footer-link {
 	font-size: 1.5em;
 	list-style-type: none;
 }
 
-#menu ul {
+#menu .ul {
 	 margin:0;
 	 padding-right: 2em;
 	 list-style-type:none;
@@ -66,13 +80,13 @@ a {
 	 padding-top: 1em;
  }
 
-#menu li {
+#menu .li {
 	 float:left;
 	 padding:0em;
 	 margin: 0px;
  }
 
-#menu li a {
+#menu .li .header-link {
 	 display:block;
 	 font-family: "Circular-book";
 	 color:white;
@@ -80,23 +94,23 @@ a {
 	 padding:5px;
  }
 
-#menu li a:hover {
+#menu .li .header-link :hover {
  	color:#FFD700;
  }/* CSS Document */
 
-#menu ul li ul {
+#menu .ul .li .ul {
  	display:none;
  }
 
-#menu ul li:hover ul {
+#menu .ul .li:hover .ul {
 	 display:block;
 	padding: 0px;
  }
-#menu li:hover ul li {
+#menu .li:hover .ul .li {
  	float:none;
  }
 
-#menu li ul {
+#menu .li .ul {
  	position:absolute;
  }
 
@@ -105,20 +119,17 @@ a {
 	width: 70vw;
  }
 
-#menu li ul {
+#menu .li .ul {
  	position:absolute;
  }
 
-li {
+.li {
 	width: 11vw;
 	margin: 0px;
 	list-style-type: none;
 }
 
-a {
-	margin: 0px;
-	width: 7vw;
-}
+
 
 
 .maystore {
@@ -220,7 +231,6 @@ a {
 }
 
 .link {
-	width: 100vw;
 	display: flex;
 	justify-content: flex-end;	
 }
@@ -231,6 +241,7 @@ a {
 	flex-direction: column;
 	text-align: center;
 	width: 100vw;
+	margin: 0px;
 	justify-content: center;
 	align-items: center;
 }
@@ -245,7 +256,7 @@ a {
 	padding-top: 4vh;
 }
 
-input {
+.input-justine {
 	text-align: center;
 	margin-top: 2vh;
 	font-family: "Circular-book";
@@ -255,6 +266,10 @@ input {
 .input {
 	width: 23vw;
 	height: 5vh;
+	text-align: center;
+	margin-top: 2vh;
+	font-family: "Circular-book";
+	font-size: 1em;
 }
 
 .gerer-quantite {
@@ -269,13 +284,13 @@ input {
 	
 }
 
-table {
+.class-table {
 	padding-top: 2em;
 	display: flex;
 	justify-content: center;
 }
 
-th {
+.ligne-tableau {
 	font-family: "Circular";
 	padding: 2em;
 }
@@ -284,7 +299,7 @@ th {
 	background-color: #D8D8D8;	
 }
 
-td {
+.ligne-td {
 	font-family: "Circular-book";	
 	padding: 2em;
 	text-align: center;
@@ -300,6 +315,7 @@ td {
 	color: white;
 	height: 6vh;
 	width: 23.3vw;
+	margin-top: 2em;
 }
 
 .submit2 {
@@ -408,7 +424,7 @@ td {
 	padding-top: 5vh;
 }
 
-h4 {
+.taille-quantite {
 	font-family: "Circular";
 	font-size: 1.5em;
 	margin-top: 2vh;
@@ -431,7 +447,7 @@ h4 {
 	font-size: 2em;
 }
 
-select {
+.selection {
 	width: 20em;
 	height: 3em;
 	text-align: center;
