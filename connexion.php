@@ -23,7 +23,7 @@ include('header.php');
 </section>
 <h2 class="inscription">Connexion</h2>
 <section class="formulaire">
-	<form method="post" action="connexion.php" class="input" class="foorm">
+	<form method="post" action="connexion.php"  class="foorm">
 		<input type="text" name="login" class="input" placeholder="Login" required/>
 		<input type="password" name="password" class="input" placeholder="Mot de passe" required/>
 		<input type="submit" name="valider" class="submit" value="Se connecter"/>

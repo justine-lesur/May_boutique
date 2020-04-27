@@ -184,7 +184,7 @@ session_start();
 		public function fanarticles()
 		{
 			$connect = mysqli_connect($this->host, $this->username, $this->password, $this->db);
-			$requete_achat = "SELECT image FROM articles ORDER BY achats DESC LIMIT 5";
+			$requete_achat = "SELECT image FROM articles ORDER BY achats DESC LIMIT 3";
 			$rows = mysqli_query($connect,$requete_achat);
 			return($rows);
 		}
@@ -535,14 +535,14 @@ session_start();
                
 				<form action="panier.php" method="post">
 					<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"/>
-					<h4>Taille</h4>
-					<select name="taille" id="taille">
+					<h4 class="taille-quantite">Taille</h4>
+					<select name="taille" id="taille" class="selection">
 						<option class="taille" value="S">Taille S</option>
 					 	<option class="taille" value="M">Taille M</option>
 						<option class="taille" value="L">Taille L</option>    
 					</select>
-					<h4>Quantité</h4>
-					<select name="quantite" id="quantite">
+					<h4 class="taille-quantite">Quantité</h4>
+					<select name="quantite" id="quantite" class="selection">
 						<option value="1">1</option>
 					 	<option value="2">2</option>
 						<option value="3">3</option>  

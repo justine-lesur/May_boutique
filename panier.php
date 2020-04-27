@@ -72,6 +72,8 @@ session_start();
 
 						{
 							$prix += (floatval($articles2[6]) * intval($articles[3]));
+							
+							
 			?>			
 					<article class="one-produit">
 						<article class="one-article">
@@ -118,10 +120,17 @@ session_start();
 
 						if(isset($_POST['moins']))
 						{
-							$quantite2 = $_POST['quantiteinitiale'] - 1;
-							$updatequantite = "UPDATE panier SET quantite = '".$quantite2."' WHERE id = '" .$_POST["id"]. "'";
-							$reg2 = mysqli_query($connexion, $updatequantite);
-							header('location: panier.php');
+							if($_POST['quantiteinitiale'] > 0)
+							{
+								$quantite2 = $_POST['quantiteinitiale'] - 1;
+								$updatequantite = "UPDATE panier SET quantite = '".$quantite2."' WHERE id = '" .$_POST["id"]. "'";
+								$reg2 = mysqli_query($connexion, $updatequantite);
+								header('location: panier.php');
+							}	
+							else 
+							{
+								echo "Vous devez valider au moins un produit";	
+							}
 						}	
 
 						if(isset($_POST['plus']))
@@ -197,21 +206,24 @@ session_start();
 							if($articles3[4] == 'S')
 							{
 								$quantitetaille = $articles4[8] - $articles3[3];
-								$updatearticle2 = "UPDATE articles SET S= '".$quantitetaille."', achats = '".$articles3[3]."' WHERE id= $articles3[2]";
+								$quantiteachats = $articles3[3] + $articles4[11];
+								$updatearticle2 = "UPDATE articles SET S= '".$quantitetaille."', achats = '".$quantiteachats."' WHERE id= $articles3[2]";
 								$query7 = mysqli_query($connexion, $updatearticle2);
 							}
 
 							elseif($articles3[4] == 'M')
 							{
 								$quantitetaille2 = $articles4[9] - $articles3[3];
-								$updatearticle3 = "UPDATE articles SET M= '".$quantitetaille2."', achats = '".$articles3[3]."' WHERE id= $articles3[2]";
+								$quantiteachats2 = $articles3[3] + $articles4[11];
+								$updatearticle3 = "UPDATE articles SET M= '".$quantitetaille2."', achats = '".$quantiteachats2."' WHERE id= $articles3[2]";
 								$query8 = mysqli_query($connexion, $updatearticle3);
 							}
 
 							elseif($articles3[4] == 'L')
 							{
 								$quantitetaille3 = $articles4[10] - $articles3[3];
-								$updatearticle4 = "UPDATE articles SET M= '".$quantitetaille3."', achats = '".$articles3[3]."' WHERE id= $articles3[2]";
+								$quantiteachats3 = $articles3[3] + $articles4[11];
+								$updatearticle4 = "UPDATE articles SET M= '".$quantitetaille3."', achats = '".$quantiteachats3."' WHERE id= $articles3[2]";
 								$query9 = mysqli_query($connexion, $updatearticle4);
 							}
 
@@ -221,7 +233,7 @@ session_start();
 
 					$supprimerpanier = "DELETE FROM panier WHERE id_utilisateur = ".$_SESSION['id']."";
 					$querysuppr = mysqli_query($connexion, $supprimerpanier);
-
+					header('Location: index.php');
 				}
 			?>
 	</section>

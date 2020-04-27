@@ -55,14 +55,14 @@ include('header.php');
 </section>
 	<section>
 		<h2 class="modifier">Historique d'achats</h2>
-		<table>
-			<tbody>
+		<table class="class-table">
+			<tbody class="tbody">
 				<tr class="haut">
-					<th>Commande</th>
-					<th>Adresse</th>
-					<th>Date d'achat</th>
-					<th>Prix total</th>
-					<th>Paiement</th>
+					<th class="ligne-tableau">Commande</th>
+					<th class="ligne-tableau">Adresse</th>
+					<th class="ligne-tableau">Date d'achat</th>
+					<th class="ligne-tableau">Prix total</th>
+					<th class="ligne-tableau">Paiement</th>
 				</tr>
 				<?php
 					$connexion = mysqli_connect('localhost','root','','boutique'); 
@@ -75,11 +75,11 @@ include('header.php');
 				{
 				?>
 				<tr>
-					<td><?php echo $articles[5]; ?></td>
-					<td><?php echo $articles[4]; ?></td>
-					<td><?php echo $articles[3]; ?></td>
-					<td><?php echo $articles[2]; ?></td>
-					<td><?php echo $articles[6]; ?></td>
+					<td class="ligne-td"><?php echo $articles[5]; ?></td>
+					<td class="ligne-td"><?php echo $articles[4]; ?></td>
+					<td class="ligne-td"><?php echo $articles[3]; ?></td>
+					<td class="ligne-td"><?php echo $articles[2]; ?></td>
+					<td class="ligne-td"><?php echo $articles[6]; ?></td>
 				</tr>	
 				<?php
 				}
