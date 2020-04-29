@@ -55,6 +55,7 @@ include('header.php');
 </section>
 	<section>
 		<h2 class="modifier">Historique d'achats</h2>
+		<a href="#" id="locat"></a>
 		<table class="class-table">
 			<tbody class="tbody">
 				<tr class="haut">

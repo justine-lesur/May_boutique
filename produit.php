@@ -1,5 +1,7 @@
 <?php
 require "justine-class.php";
+
+ob_start();
 ?>
 
 <!doctype html>
@@ -72,7 +74,7 @@ require "justine-class.php";
 						$connexion = mysqli_connect("localhost", "root", "", "boutique"); 
 						$requete4 = "INSERT INTO commentaires (login, commentaire, id_article, note) VALUES ('".$_SESSION['login']."','$commentaire2','$id_article','$note')";
 						$req4 = mysqli_query($connexion, $requete4);
-						mysqli_close($connexion);
+						header('Location: '.$_SERVER['HTTP_REFERER']);
 					}
 					
 					else 
@@ -83,6 +85,7 @@ require "justine-class.php";
 			?>
 	</section>
 			<?php
+			ob_end_flush();
 				include('footer.php');
 			?>
 	</section>
