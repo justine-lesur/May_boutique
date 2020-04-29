@@ -111,10 +111,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
 <body> 
 <?php if(isset($resultat_art)): ?>
     <section id="accueil3">
-        <?php require('header.php');
-        if(isset($error)): ?>
-            <div><?php echo $error; ?></div>
-        <?php endif; ?>
+        <?php require('header.php'); ?>
     </section>
         <main>
             <section>
@@ -144,7 +141,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
 		<?php
             require('header.php');
             if(isset($error)): ?>
-                <div><?php echo $error; ?></div>
+                <div id="erreur-acc2"><?php echo $error; ?></div>
             <?php endif; ?>
 		<h1 class="maystore2">
             <!-- Pour afficher le titre d'en-tête  -->

@@ -52,7 +52,7 @@ if(isset($_POST["typ-add"])){
 <?php
 
 // if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
-
+        <a href="index.php"><img src="img/53494.png" alt="leave" class="leave-admin"></a>
         <main class="main-container">
             <section class="sec-container">
                 <nav class="nav-container">
@@ -67,8 +67,8 @@ if(isset($_POST["typ-add"])){
                 </nav>
                 <section id="sec-container2-modif">
                     <div class="box-title">
-                            <h1 class="title-admin">Liste des catégories</h1>
-                        </div>
+                        <h1 class="title-admin">Liste des catégories</h1>
+                    </div>
                     <section id="sec-container3">
                         <article class="art-forcat" id="art-listing">
                             <div class="box-gescat">
@@ -94,8 +94,10 @@ if(isset($_POST["typ-add"])){
                                 <a href="delete-type.php?id=<?php echo $type[0] ?>" class="lien-gescat-del"><img src="img/Button-Delete-icon.png" alt="delete" class="but-gescat-del"></a>
                             </div>
 <?php
+
     endforeach;
 endforeach;
+
 ?>
                         </article>
 <?php

@@ -22,7 +22,6 @@ $newfan = $fan->fanarticles();
 		?>
 		<h1 class="maystore">Maystore</h1>
 	</section>
-	
 	<h2 class="nouveautes">#Nouveautés</h2>
 	<article class="titre">
 		<img src="css/img-css/trait.png" class="trait"/>
@@ -33,7 +32,7 @@ $newfan = $fan->fanarticles();
 		<?php
 			while($donnees = mysqli_fetch_array($nouveautes))
             {
-				echo "<img src='".$donnees[0]."' class='articles-accueil'/><br />";
+				echo "<img src='".$donnees[0]."' class='articles-accueil'>";
 			}
 		?>
 	</section>
@@ -50,7 +49,7 @@ $newfan = $fan->fanarticles();
 		<?php
 			while($donnees = mysqli_fetch_array($newfan))
             {
-				echo "<img src='".$donnees[0]."' class='articles-accueil'/><br />";
+				echo "<img src='".$donnees[0]."' class='articles-accueil'>";
 			}
 		?>
 	</section>
@@ -60,6 +59,3 @@ $newfan = $fan->fanarticles();
 	<?php
 		include('footer.php');	
 	?>
-
-</body>
-</html>

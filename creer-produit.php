@@ -27,6 +27,7 @@ session_start();
 <?php 
 
 // if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
+        <a href="index.php"><img src="img/53494.png" alt="leave" class="leave-admin"></a>
         <main class="main-container">
             <section class="sec-container">
                 <nav class="nav-container">

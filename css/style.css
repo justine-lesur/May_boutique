@@ -122,7 +122,14 @@ body, html{
 
 
 
-
+.leave-admin{
+    position: absolute;
+    background-color: white;
+    width: 3%;
+    right: 20px;
+    top: 20px;
+    border-radius: 5px;
+}
 
 #admin-table{
     width: 80%;
@@ -174,6 +181,7 @@ body, html{
     top: 26%;
     border: 2.5px solid black;
     left: 16%;
+    z-index: 100;
 }
 
 #shadow-box{
@@ -204,6 +212,7 @@ body, html{
     position: fixed;
     width: 85%;
     padding: 2% 0;
+    z-index: 100;
 }
 
 #admin-prodtr:hover{
@@ -1054,6 +1063,16 @@ label[for=ts],label[for=tm],label[for=tl]{
     font-family: "Circular-book";
 }
 
+#erreur-acc2{
+    position: relative;
+    top: 200px;
+    text-align: center;
+    font-family: "Circular-book";
+    color: white;
+    font-size: 20px;
+    background-color: black;
+    padding: 10px;
+}
 
 
 
@@ -1158,16 +1177,17 @@ label[for=ts],label[for=tm],label[for=tl]{
 	 padding:5px;
  }
 
-#menu .li .header-link :hover {
- 	color:#FFD700;
- }/* CSS Document */
+#menu .li .header-link:hover {
+     color:#FFD700;
+     /* text-shadow:1px 1px 3px black; */
+}/* CSS Document */
 
 #menu .ul .li .ul {
  	display:none;
- }
+}
 
 #menu .ul .li:hover .ul {
-	 display:block;
+	display:block;
 	padding: 0px;
  }
 #menu .li:hover .ul .li {
@@ -1304,7 +1324,7 @@ label[for=ts],label[for=tm],label[for=tl]{
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	width: 100vw;
+	width: 99vw;
 	margin: 0px;
 	justify-content: center;
 	align-items: center;
@@ -1577,13 +1597,22 @@ label[for=ts],label[for=tm],label[for=tl]{
 	width: 23.3vw;
 }
 
+.foot-li-cat{
+    padding-bottom: 3vh;
+}
+
+.ul .li .footer-link:hover{
+    color:#FFD700;
+     /* text-shadow:1px 1px 3px black; */
+}
+
 footer {
-	margin-top: 12vh;
-	padding-top: 5vh;
-	padding-bottom: 5vh;
-	display: flex;
-	flex-direction: row;
-	background-color: #111111;
+	margin-top: 10vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #111111;
+    padding: 5vh 0;
+    height: 25vh;
 }
 
 .footer-link {
