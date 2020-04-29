@@ -128,7 +128,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
                 <h2 id="tit-for-search"><?php echo "Résultat pour la recherche : ".$_GET["q"]."..."; ?></h2>
                 <section class="section-prod">
                     <?php foreach($resultat_art as $prod): ?>
-                        <a href="#" class="article-prod">
+                        <a href="produit.php?id=<?php echo $prod[0] ?>" class="article-prod">
                             <img src="<?php echo $prod[4]; ?>" class="img-produits" alt="">
                             <div class="box-h4-pprod">
                                 <h4 class="title4-prod"><?php echo $prod[1]; ?></h4>                                
@@ -195,7 +195,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
                 <section class="section-prod">
                     <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "recent"):
                         foreach($resultat_date as $produits): ?>    
-                            <a href="#" class="article-prod">
+                            <a href="produit.php?id=<?php echo $produits[0] ?>" class="article-prod">
                                 <img src="<?php echo $produits[4]; ?>" class="img-produits" alt="">
                                 <div class="box-h4-pprod">
                                     <h4 class="title4-prod"><?php echo $produits[1]; ?></h4>
@@ -205,7 +205,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
                         <?php endforeach;
                     elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"):
                         foreach($resultat_minprice as $produits): ?>    
-                            <a href="#" class="article-prod">
+                            <a href="produit.php?id=<?php echo $produits[0] ?>" class="article-prod">
                                 <img src="<?php echo $produits[4]; ?>" class="img-produits" alt="">
                                 <div class="box-h4-pprod">
                                     <h4 class="title4-prod"><?php echo $produits[1]; ?></h4>
@@ -215,7 +215,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
                         <?php endforeach;
                     elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"):
                         foreach($resultat_maxprice as $produits): ?>    
-                            <a href="#" class="article-prod">
+                            <a href="produit.php?id=<?php echo $produits[0] ?>" class="article-prod">
                                 <img src="<?php echo $produits[4]; ?>" class="img-produits" alt="">
                                 <div class="box-h4-pprod">
                                     <h4 class="title4-prod"><?php echo $produits[1]; ?></h4>
@@ -225,13 +225,13 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
                         <?php endforeach;
                     else:
                         foreach($resultat as $produits): ?>    
-                        <a href="#" class="article-prod">
-                            <img src="<?php echo $produits[4]; ?>" class="img-produits" alt="">
-                            <div class="box-h4-pprod">
-                                <h4 class="title4-prod"><?php echo $produits[1]; ?></h4>
-                                <p class="para-prod"><?php echo $produits[6]." €"; ?></p>
-                            </div>
-                        </a>
+                            <a href="produit.php?id=<?php echo $produits[0] ?>" class="article-prod">
+                                <img src="<?php echo $produits[4]; ?>" class="img-produits" alt="">
+                                <div class="box-h4-pprod">
+                                    <h4 class="title4-prod"><?php echo $produits[1]; ?></h4>
+                                    <p class="para-prod"><?php echo $produits[6]." €"; ?></p>
+                                </div>
+                            </a>
                         <?php endforeach; ?>
                 </section>
                     <?php 
@@ -249,7 +249,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
                 <section class="section-prod">
                     <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "recent"):
                         foreach($resultat_date as $produits): ?>    
-                            <a href="#" class="article-prod">
+                            <a href="produit.php?id=<?php echo $produits[0] ?>" class="article-prod">
                                 <img src="<?php echo $produits[4]; ?>" class="img-produits" alt="">
                                 <div class="box-h4-pprod">
                                     <h4 class="title4-prod"><?php echo $produits[1]; ?></h4>
@@ -259,7 +259,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
                         <?php endforeach;
                     elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"):
                         foreach($resultat_minprice as $produits): ?>    
-                            <a href="#" class="article-prod">
+                            <a href="produit.php?id=<?php echo $produits[0] ?>" class="article-prod">
                                 <img src="<?php echo $produits[4]; ?>" class="img-produits" alt="">
                                 <div class="box-h4-pprod">
                                     <h4 class="title4-prod"><?php echo $produits[1]; ?></h4>
@@ -269,7 +269,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
                         <?php endforeach;
                     elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"):
                         foreach($resultat_maxprice as $produits): ?>    
-                            <a href="#" class="article-prod">
+                            <a href="produit.php?id=<?php echo $produits[0] ?>" class="article-prod">
                                 <img src="<?php echo $produits[4]; ?>" class="img-produits" alt="">
                                 <div class="box-h4-pprod">
                                     <h4 class="title4-prod"><?php echo $produits[1]; ?></h4>
@@ -279,7 +279,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
                         <?php endforeach;
                     else:
                         foreach($resultat as $produits): ?>    
-                        <a href="#" class="article-prod">
+                        <a href="produit.php?id=<?php echo $produits[0] ?>" class="article-prod">
                             <img src="<?php echo $produits[4]; ?>" class="img-produits" alt="">
                             <div class="box-h4-pprod">
                                 <h4 class="title4-prod"><?php echo $produits[1]; ?></h4>

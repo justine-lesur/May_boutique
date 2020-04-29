@@ -7,7 +7,7 @@ require "justine-class.php";
 <head>
 <meta charset="UTF-8">
 <title>May - Boutique</title>
-<link rel="stylesheet" href="css/boutique.css" type="text/css"/>
+<link rel="stylesheet" href="css/style.css" type="text/css"/>
 </head>
 
 <body>
