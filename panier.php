@@ -6,7 +6,7 @@ session_start();
 <html>
 <head>
 <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/boutique.css">    
+    <link rel="stylesheet" href="css/style.css">    
 <title>May - Panier</title>
 </head>
 

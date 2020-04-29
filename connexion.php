@@ -11,7 +11,7 @@ $var->connect();
 <head>
 <meta charset="UTF-8">
 <title>May - Connexion</title>
-    <link rel="stylesheet" href="css/boutique.css" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
 </head>
 
 <body>

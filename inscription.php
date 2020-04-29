@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 		<meta name="description" content="">
-    <link rel="stylesheet" href="css/boutique.css" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
 		<title>May - Inscription</title>
 </head>
 <body>
