@@ -729,9 +729,7 @@ label[for=add-categorie], label[for=add-types]{
 }
 
 
-
-
-/*////////// CREER PRODUIT //////////*/
+                                        /*////////// CREER PRODUIT //////////*/
 
 
 
@@ -940,3 +938,663 @@ label[for=ts],label[for=tm],label[for=tl]{
 #inp-create-prod:hover{
     transform: scale(0.9);
 }
+
+
+
+
+                                        /*////////// PRODUITS //////////*/
+
+
+.accueil2 {
+	height: 81vh;
+	background-size: cover;
+}
+
+.maystore2{
+    font-family: "Circular";
+	color: white;
+	font-size: 10em;
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 10vw;
+}
+
+#form-search{
+    display: flex;
+    justify-content: center;
+    margin: 2% 0;
+}
+
+#but-search-q{
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+#img-search{
+    width: 30px;
+}
+
+#inp-q{
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 0 5px;
+}
+
+#accueil3{
+    background-color: black;
+    height: 30vh;
+}
+
+.img-produits{
+    height: 45em;
+    padding: 2em 2em 0.5em;
+}
+
+.section-prod{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.article-prod{
+    font-family: "Circular-book";
+    text-decoration: none;
+}
+
+.title4-prod{
+    color: gray;
+    margin: 0;
+    padding: 0.5em;
+}
+
+.box-h4-pprod{
+    padding: 0 2em 2em 2em;
+    text-align: center;
+}
+
+.para-prod{
+    margin: 0;
+    color: black;
+    font-weight: bold;
+}
+
+.form-prodorder{
+    height: 4vh;
+}
+
+.selectorder{
+    height: 4vh;
+    margin-left: 11vh;
+    width: 11%;
+    padding: 0 20px;
+    font-size: 19px;
+    border: none;
+    font-family: "Circular-book";
+    border-bottom: 2px solid black;
+}
+
+.but-trier{
+    font-family: "Circular-book";
+    height: 4vh;
+    font-size: 19px;
+    background-color: white;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+#tit-for-search{
+    padding-left: 11vh;
+    font-family: "Circular-book";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                /*///////// JUSTINE /////////*/
+
+
+
+
+
+
+@font-face {
+	font-family: "Circular";
+	src: url("circular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Circular-book";
+	src: url("CircularStd-Book.ttf") format("truetype");
+}
+
+.accueil {
+	background-image: url("img-css/fond2.png");
+	height: 105vh;
+	background-size: 100%;
+}
+
+.image-background {
+	background-image: url("img-css/fond.png");
+	height: 70vh;
+	background-size: 100%;
+}
+
+.image-background2 {
+	background-image: url("img-css/fond3.png");
+	height: 84vh;
+	background-size: 100%;
+}
+
+
+.may {
+ 	height: 9em;
+}
+
+.all-header {
+ 	display: flex;
+	padding-top: 2vh;
+	
+}
+
+.flex-end {
+	 display: flex;
+	 justify-content: flex-end;
+	 width: 90vw;
+}
+
+.header-link {
+	font-size: 1.5em;
+	list-style-type: none;
+	margin: 0px;
+	width: 7vw;
+}
+
+.footer-link {
+	font-size: 1.5em;
+	list-style-type: none;
+}
+
+#menu .ul {
+	 margin:0;
+	 padding-right: 2em;
+	 list-style-type:none;
+	 text-align:center;
+	 display: flex;
+	 justify-content: flex-end;
+	 padding-top: 1em;
+ }
+
+#menu .li {
+	 float:left;
+	 padding:0em;
+	 margin: 0px;
+ }
+
+#menu .li .header-link {
+	 display:block;
+	 font-family: "Circular-book";
+	 color:white;
+	 text-decoration:none;
+	 padding:5px;
+ }
+
+#menu .li .header-link :hover {
+ 	color:#FFD700;
+ }/* CSS Document */
+
+#menu .ul .li .ul {
+ 	display:none;
+ }
+
+#menu .ul .li:hover .ul {
+	 display:block;
+	padding: 0px;
+ }
+#menu .li:hover .ul .li {
+ 	float:none;
+ }
+
+#menu .li .ul {
+ 	position:absolute;
+ }
+
+#menu {
+ 	height:20vh;
+	width: 70vw;
+ }
+
+#menu .li .ul {
+ 	position:absolute;
+ }
+
+.li {
+	width: 11vw;
+	margin: 0px;
+	list-style-type: none;
+}
+
+
+
+
+.maystore {
+	font-family: "Circular";
+	color: white;
+	font-size: 10em;
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 12vh;
+	padding-right: 10vw;
+}
+
+.hashtag {
+	font-family: "Circular";
+	margin: 0px;
+	padding-bottom: 2em;
+	color: white;
+	font-size: 10em;
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 10vw;	
+}
+
+.hashtag2 {
+	font-family: "Circular";
+	margin: 0px;
+	color: white;
+	font-size: 10em;
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 6vh;
+	padding-right: 10vw;	
+}
+
+.all-articles {
+	display : flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.articles-accueil {
+	height: 45em;
+	padding: 2em;
+}
+
+
+.nouveautes {
+	font-family: "Circular";
+	text-align: center;
+	font-size: 4.5em;
+	margin-bottom: 0px;
+	padding-top: 2em;
+}
+
+.produitsphares {
+	font-family: "Circular";
+	text-align: center;
+	font-size: 4.5em;
+	margin-bottom: 0px;
+	padding-top: 1em;
+}
+
+.inscription {
+	font-family: "Circular";
+	text-align: center;
+	font-size: 3em;
+	margin-bottom: 0px;
+	padding-top: 1em;
+}
+
+.trait {
+	display: flex;
+	justify-content: center;
+	width: 30em;
+	height: 0.5em;
+}
+
+.trait2 {
+	display: flex;
+	justify-content: center;
+	width: 35em;
+	height: 0.5em;
+}
+
+.titre {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 1.5em;
+}
+
+.voirplus {
+	color: grey;
+	font-family: "Circular-book";
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 3.5em;
+	font-size: 1.2em;
+	width: 100vw;
+}
+
+.link {
+	display: flex;
+	justify-content: flex-end;	
+}
+
+/*INSCRIPTION-CONNEXION*/
+.formulaire {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100vw;
+	margin: 0px;
+	justify-content: center;
+	align-items: center;
+}
+
+.foorm {
+ 	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	padding-top: 4vh;
+}
+
+.input-justine {
+	text-align: center;
+	margin-top: 2vh;
+	font-family: "Circular-book";
+	font-size: 1em;
+}
+
+.input {
+	width: 23vw;
+	height: 5vh;
+	text-align: center;
+	margin-top: 2vh;
+	font-family: "Circular-book";
+	font-size: 1em;
+}
+
+.gerer-quantite {
+	display: flex;
+}
+
+.quantite-submit {
+	margin: 1em;
+	width: 3vw;
+	height: 5vh;
+	border-color: grey;
+	
+}
+
+.class-table {
+	padding-top: 2em;
+	display: flex;
+	justify-content: center;
+}
+
+.ligne-tableau {
+	font-family: "Circular";
+	padding: 2em;
+}
+
+.haut {
+	background-color: #D8D8D8;	
+}
+
+.ligne-td {
+	font-family: "Circular-book";	
+	padding: 2em;
+	text-align: center;
+	background-color: #F4F4F4;	
+}
+
+.chiffre {
+	padding-top: 1vh;
+}
+
+.submit {
+	background-color: #0C0C0C;
+	color: white;
+	height: 6vh;
+	width: 23.3vw;
+	margin-top: 2em;
+}
+
+.submit2 {
+	background-color: #0C0C0C;
+	color: white;
+	height: 6vh;
+	width: 23.3vw;
+}
+
+/*PAGES PRODUITS*/
+.all-produits {
+	background-color: #E4E4E4;
+	display: flex;
+	justify-content: center;
+}
+
+.all-produits2 {
+	background-color: #E4E4E4;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.one-produit {
+	background-color: #FFFFFF;
+	display: flex;
+	width: 90vw;
+	margin-top: 10vh;
+	
+}
+
+.one-produit2 {
+	background-color: #FFFFFF;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 90vw;
+	margin-top: 10vh;
+	
+}
+
+.one-article {
+	display: flex;
+}
+
+.grey {
+	background-color: #E4E4E4;
+}
+
+.titre-produit {
+	font-family: "Circular";
+	font-size: 2.2em;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+.all-description {
+	font-family: "Circular-book";
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 1.2em;	
+	width: 60vw;
+	text-align: center;
+}
+
+.description {
+	font-family: "Circular-book";
+	font-size: 1.2em;	
+	width: 40vw;
+}
+
+.description2 {
+	font-family: "Circular-book";
+	font-size: 1.2em;	
+	width: 70vw;
+	padding-top: 5vh;
+	height: 8vh;
+	border-color: grey;
+	text-align: center;
+}
+
+.moyen-paiement {
+	display: flex;
+	justify-content: center;
+	padding-top: 3vh;
+}
+
+.moyen {
+	width: 10vw;
+}
+
+.icon {
+	height: 8vh;
+	padding-top: 2vh;
+}
+
+.valider-paiement {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 3vh;
+}
+
+.valider-panier {
+	padding-top: 5vh;
+}
+
+.taille-quantite {
+	font-family: "Circular";
+	font-size: 1.5em;
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+}
+
+.note-cinq {
+	color: #D82636;
+}
+
+.articles-produit {
+	height: 43em;
+	padding-top: 3em;
+	padding-left: 3em;
+	padding-bottom: 3em;
+	padding-right: 0px;
+}
+
+.modifier {
+	padding-top: 8vh;
+	font-family: "Circular";
+	display: flex;
+	justify-content: center;
+	font-size: 2em;
+}
+
+.selection {
+	width: 20em;
+	height: 3em;
+	text-align: center;
+}
+
+.taille {
+	text-align: center;
+	font-size: 1em;
+	font-family: "Circular-book";
+}
+
+.prix {
+	font-family: "Circular";
+	font-size: 1.5em;	
+}
+
+.price {
+	font-family: "Circular";
+	font-size: 1.5em;
+	margin-top: 2vh;
+}
+
+.commentaires {
+	text-align: center;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.mon-commentaire {
+	text-align: center;
+	background-color: #F1F1F1;
+	width: 90vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.description3 {
+	font-family: "Circular-book";
+	font-size: 1.2em;	
+	width: 70vw;
+	padding-top: 1vh;
+	height: 8vh;
+	border-color: grey;
+	text-align: center;
+}
+
+.submit3 {
+	background-color: #0C0C0C;
+	color: white;
+	height: 6vh;
+	margin-top: 5vh;
+	width: 23.3vw;
+}
+
+footer {
+	margin-top: 12vh;
+	padding-top: 5vh;
+	padding-bottom: 5vh;
+	display: flex;
+	flex-direction: row;
+	background-color: #111111;
+}
+
+.footer-link {
+	font-family: "Circular-book";
+	color: grey;
+	text-decoration: none;
+}
+
+

@@ -1,45 +1,65 @@
-<!-- <form action="" method="post">
-            <select name="selectorder">
-                <option value="recent">Plus Récent</option>
-                <option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"){ echo "selected"; } ?> value="prixmini">Plus Bas Prix</option>
-                <option <?php if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"){ echo "selected"; } ?> value="prixmax">Prix Le Plus Élevé</option>
-                <input type="submit">    
-            </select>
-        </form>
-    </section>
-    <section>
-        // if(isset($_POST["selectorder"]) && $_POST["selectorder"] == "recent"):
-        //     foreach($resultat as $article): ?>
-        //         <article>
-        //             <a href=""><img src="<?php echo $article[4]?>" alt="mode"></a>
-        //             <h3><?php echo $article[1] ?></h3>
-        //             <span><?php echo $article[6] ?> €</span>
-        //         </article>
-        //     <?php endforeach;
-        // elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmini"):
-        //     foreach($resultat1 as $article): ?>
-        //         <article>
-        //             <a href=""><img src="<?php echo $article[4]?>" alt="mode"></a>
-        //             <h3><?php echo $article[1] ?></h3>
-        //             <span><?php echo $article[6] ?> €</span>
-        //         </article>
-        //     <?php endforeach;
-        // elseif(isset($_POST["selectorder"]) && $_POST["selectorder"] == "prixmax"):
-        //     foreach($resultat2 as $article): ?>
-        //         <article>
-        //             <a href=""><img src="<?php echo $article[4]?>" alt="mode"></a>
-        //             <h3><?php echo $article[1] ?></h3>
-        //             <span><?php echo $article[6] ?> €</span>
-        //         </article>
-        //     <?php endforeach;
-        // else:
-        //     foreach($resultat as $article): ?>
-        //         <article>
-        //             <a href=""><img src="<?php echo $article[4]?>" alt="mode"></a>
-        //             <h3><?php echo $article[1] ?></h3>
-        //             <span><?php echo $article[6] ?> €</span>
-        //         </article>
-        //     <?php endforeach;
-        // endif;
-        // ?>
-        //  -->
+<?php
+include("justine-class.php");
+$achat = new achat;
+$nouveautes = $achat->newarticles();
+$fan = new fan;
+$newfan = $fan->fanarticles();
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>May - Boutique de vêtements en ligne</title>
+<link rel="stylesheet" href="css/style.css" type="text/css"/>
+</head>
+
+<body>
+	<section class="accueil">
+		<?php
+			include('header.php');
+		?>
+		<h1 class="maystore">Maystore</h1>
+	</section>
+	
+	<h2 class="nouveautes">#Nouveautés</h2>
+	<article class="titre">
+		<img src="css/img-css/trait.png" class="trait"/>
+	</article>
+	
+	<section class="all-articles">
+	
+		<?php
+			while($donnees = mysqli_fetch_array($nouveautes))
+            {
+				echo "<img src='".$donnees[0]."' class='articles-accueil'/><br />";
+			}
+		?>
+	</section>
+	
+	<article class="link">
+		<a class="voirplus" href="articles.php" target="_blank">Voir plus</a>
+	</article>
+	
+	<h2 class="produitsphares">#Produitsphares</h2>
+	<article class="titre">
+		<img src="css/img-css/trait.png" class="trait2"/>
+	</article>
+	<section class="all-articles">
+		<?php
+			while($donnees = mysqli_fetch_array($newfan))
+            {
+				echo "<img src='".$donnees[0]."' class='articles-accueil'/><br />";
+			}
+		?>
+	</section>
+	<article class="link">
+		<a class="voirplus" href="articles.php" target="_blank">Voir plus</a>
+	</article>
+	<?php
+		include('footer.php');	
+	?>
+
+</body>
+</html>
