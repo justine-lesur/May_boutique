@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 ?>
 
 <!doctype html>
@@ -20,6 +21,12 @@ session_start();
 		</section>
 		<section class="all-produits2">
 			<?php
+			if(!isset($_SESSION['login']))
+			{
+				header('Location: index.php');
+				
+			} else
+			{
 				$connexion = mysqli_connect('localhost','root','','boutique');
 
 				if (isset($_POST['submit']))
@@ -28,7 +35,7 @@ session_start();
 					$reg = mysqli_query($connexion, $nouvelarticle);
 					$data = mysqli_fetch_assoc($reg);
 					$rows = mysqli_num_rows($reg);
-
+					
 								if(empty($rows))
 								{
 									$requete = "INSERT INTO panier (id_utilisateur, id_article, quantite, taille) VALUES (".$_SESSION['id'].",".$_POST["id"].",".$_POST["quantite"].",'".$_POST["taille"]."')";
@@ -44,12 +51,13 @@ session_start();
 									if($quantite <= $resultatdoe[0][0])
 									{
 										$updatearticle = "UPDATE panier SET quantite = '".$quantite."' WHERE id_article='" .$_POST["id"]. "'";
-										$reg2 = mysqli_query($connexion, $updatearticle);	
+										$reg2 = mysqli_query($connexion, $updatearticle);
+										header('Location:panier.php');
 									} 
 
 									else
 									{
-										echo "stock indisponible";
+										echo "<p class='message-erreur'>stock indisponible</p>";
 									}
 								}
 				}
@@ -129,7 +137,7 @@ session_start();
 							}	
 							else 
 							{
-								echo "Vous devez valider au moins un produit";	
+								echo "<p class='message-erreur'>Vous devez valider au moins un produit</p>";	
 							}
 						}	
 
@@ -146,7 +154,7 @@ session_start();
 
 							else 
 							{ 
-								echo 'stock indisponible';
+								echo "<p class='message-erreur'>stock indisponible</p>";
 							}
 
 						}
@@ -156,13 +164,12 @@ session_start();
 						{
 							$query = "DELETE FROM panier WHERE id = '".$_POST['panier']."'";
 							$reg = mysqli_query ($connexion, $query);
-							header('location: panier.php');
+							header('Location: '.$_SERVER['HTTP_REFERER']);
 						}
 
 			?>
 
 								<form method="post" class="valider-paiement">
-									<input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
 									<textarea name="description" id="description" class="description2" placeholder="Adresse de livraison*" required></textarea>
 									<article class="moyen-paiement">
 										<div class="moyen"><input type="radio" name="moyen" value="mastercard" class="radio" required/> <img src="css/img-css/icons-01.png" class="icon"/></div>
@@ -180,7 +187,7 @@ session_start();
 				if(isset($_POST['submit3']) && $prix!=0)
 				{
 					date_default_timezone_set('UTC');
-					$numero_commande = $_SESSION['id'].date(dNHis);
+					$numero_commande = $_SESSION['id'].date("dNHis");
 
 					$insertcommande2 = "INSERT INTO commandes (id_utilisateur, prix, date, adresse, numero_commande, moyen_paiement) VALUES (".$_SESSION['id'].", ".$prix.", NOW(),'".$_POST['description']."',".$numero_commande.",'".$_POST['moyen']."' )";
 					$query7= mysqli_query($connexion, $insertcommande2);
@@ -233,11 +240,15 @@ session_start();
 
 					$supprimerpanier = "DELETE FROM panier WHERE id_utilisateur = ".$_SESSION['id']."";
 					$querysuppr = mysqli_query($connexion, $supprimerpanier);
-					header('Location: index.php');
+				?>
+				<meta http-equiv="refresh" content="0;URL=index.php">
+		<?php
 				}
+			}
 			?>
 	</section>
 			<?php
+			ob_end_flush();
 				include('footer.php');
 			?>
 	</section>

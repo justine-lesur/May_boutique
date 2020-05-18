@@ -23,6 +23,14 @@ include('header.php');
 <section class="formulaire">
 	<form method="post">
 		<section>
+		<?php
+			if(!isset($_SESSION['login']))
+			{
+				header('Location: index.php');
+				
+			} else
+			{
+			?>
 		<?php $var->updatelogin();?>
 		<h2 class="modifier">Modifier mon identifiant</h1>
 		<label>
@@ -32,7 +40,7 @@ include('header.php');
 			<input type="password" name="motdepasse" class="input" placeholder="Mot de passe*" required/><br/>
 		</label>
 		<label>
-	  		<input type="submit" name="submit2" class="submit2" value="Valider" />
+	  		<input type="submit" name="submit2" class="submit" value="Valider" />
 	 	</label>
 	</form>
 	</section>
@@ -48,7 +56,7 @@ include('header.php');
 			<input type="password" name="nouveaumotdepasse" class="input" placeholder="Nouveau mot de passe*" required/><br/>
 		</label>
 		<label>
-	  		<input type="submit" class="submit2" name="submit3" value="Valider" />
+	  		<input type="submit" class="submit" name="submit3" value="Valider" />
 	 	</label>
 	</form>
 	</section>
@@ -89,6 +97,7 @@ include('header.php');
 		</table>
 	</section>
 	<?php
+			}
 		include('footer.php');
 	?>
 </body>

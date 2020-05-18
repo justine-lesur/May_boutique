@@ -7,9 +7,9 @@ ob_start();
 <!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>May - Boutique</title>
-<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>May - Boutique</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
 </head>
 
 <body>

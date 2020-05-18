@@ -103,9 +103,9 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>May - Boutique de vêtements en ligne</title>
-<link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>May - Boutique de vêtements en ligne</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
 </head>
 
 <body> 

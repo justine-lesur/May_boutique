@@ -37,9 +37,6 @@ $newfan = $fan->fanarticles();
 		?>
 	</section>
 	
-	<article class="link">
-		<a class="voirplus" href="articles.php" target="_blank">Voir plus</a>
-	</article>
 	
 	<h2 class="produitsphares">#Produitsphares</h2>
 	<article class="titre">
@@ -53,9 +50,6 @@ $newfan = $fan->fanarticles();
 			}
 		?>
 	</section>
-	<article class="link">
-		<a class="voirplus" href="articles.php" target="_blank">Voir plus</a>
-	</article>
 	<?php
 		include('footer.php');	
 	?>

@@ -6,7 +6,7 @@ ob_start();
 
 
 $connexion= mysqli_connect("localhost","root","","boutique");
-$requete = "SELECT u.login, c.numero_commande, c.adresse, c.date, c.prix, c.moyen_paiement FROM commandes c INNER JOIN commande_produit cp ON c.numero_commande = cp.numero_commande INNER JOIN utilisateurs u ON c.id_utilisateur = u.id";
+$requete = "SELECT u.login, c.numero_commande, c.adresse, c.date, c.prix, c.moyen_paiement, c.id FROM commandes c INNER JOIN commande_produit cp ON c.numero_commande = cp.numero_commande INNER JOIN utilisateurs u ON c.id_utilisateur = u.id";
 $query = mysqli_query($connexion,$requete);
 $resultat = mysqli_fetch_all($query);
 
@@ -54,7 +54,7 @@ $resultat = mysqli_fetch_all($query);
                         <tbody>
 <?php   foreach($resultat as $commande): 
 
-$newDate = date("d-m-Y H:i:s",strtotime($commande[3]))
+$newDate = date("d-m-Y H:i",strtotime($commande[3]))
 
 ?>
                             <tr>
