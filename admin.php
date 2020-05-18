@@ -4,7 +4,7 @@ session_start();
 
 ob_start();
 
-////////// ARTICLES //////////
+////////// ARTICLES ///////////
 
 $connexion = mysqli_connect("localhost","root","","boutique");
 $requete = "SELECT * FROM articles ORDER BY nom ASC";
