@@ -51,7 +51,7 @@ if(isset($_POST["typ-add"])){
     <body>
 <?php
 
-// if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
+if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
         <a href="index.php"><img src="img/53494.png" alt="leave" class="leave-admin"></a>
         <main class="main-container">
             <section class="sec-container">
@@ -167,8 +167,16 @@ endforeach;
             </section>
         </main>
 <?php
-ob_end_flush();
-// endif; ?>
+
+elseif(empty($_SESSION["login"]) || $_SESSION["id_droits"] == 1):
+
+    $erreur = "Vous devez être connecté en tant qu'administrateur pour accéder a cette page";
+
+endif;
+
+ob_end_flush(); 
+
+?>
 
     </body>
 </html>

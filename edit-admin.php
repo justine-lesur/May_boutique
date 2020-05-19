@@ -21,7 +21,7 @@ $resultat = mysqli_fetch_all($query, MYSQLI_ASSOC);
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-<!-- // if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10):  -->
+<?php if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
         <a href="index.php"><img src="img/53494.png" alt="leave" class="leave-admin"></a>
         <main class="main-container">
             <section class="sec-container">
@@ -47,6 +47,14 @@ $resultat = mysqli_fetch_all($query, MYSQLI_ASSOC);
                         </section>
 <?php
 
+
+
+elseif(empty($_SESSION["login"]) || $_SESSION["id_droits"] == 1):
+
+    $erreur = "Vous devez être connecté en tant qu'administrateur pour accéder a cette page";
+
+endif;
+
 if(isset($_POST["modifier"])){
     $name = filter_input(INPUT_POST,"nom",FILTER_SANITIZE_SPECIAL_CHARS);
     $price = filter_input(INPUT_POST,"prix",FILTER_VALIDATE_INT);
@@ -56,8 +64,8 @@ if(isset($_POST["modifier"])){
     header("Location:admin.php");
 }
 
-ob_end_flush();
-// endif; ?>
+ob_end_flush(); ?>
+
                     </section>
             </section>
         </main>

@@ -2,8 +2,6 @@
 
 session_start();
 
-var_dump($_SESSION);
-
 $connexion = mysqli_connect("localhost","root","","boutique");
 $requete = "SELECT * FROM categories";
 $query = mysqli_query($connexion,$requete);
@@ -49,25 +47,27 @@ if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
                     <div class="box-title">
                         <h1 class="title-admin">Ajouter un produit</h1>
                     </div>
-                    <section>
-                        <table id="tab-creacat">
-                            <caption>Catégories</caption>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>NOM</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach($resultat1 as $cat): ?>
-                                <tr>
-                                    <td><?php echo $cat[0] ?></td>
-                                    <td><?php echo $cat[1] ?></td>
-                                    
-                                </tr>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                    <section id="sec-incont2">
+                        <div class="div-catyp">
+                            <div class="shadow-boxcatyp"></div>
+                            <table id="tab-creacat">
+                                <caption class="cap-creaprd">Catégories</caption>
+                                <thead>
+                                    <tr>
+                                        <th class="th-tab-creaprod">ID</th>
+                                        <th class="th-tab-creaprod">NOM</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbody-crea">
+                                <?php foreach($resultat1 as $cat): ?>
+                                    <tr class="tr-tab-creatyp">
+                                        <td class="td-tabcrea-1"><?php echo $cat[0] ?></td>
+                                        <td class="td-tabcrea-2"><?php echo $cat[1] ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                         <form action="creer-produit.php" method="post" enctype="multipart/form-data" id="tab-creprod">
                             <div id="box-creame">
                                 <label for="nom" class="inpcenter" id="lab-creame">Nom de l'article</label>
@@ -127,23 +127,26 @@ if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
 
                             <input type="submit" name="creer" id="inp-create-prod" value="Ajouter">
                         </form>
-                        <table id="tab-creaprod">
-                            <caption>Types</caption>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>NOM</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach($resultat2 as $type): ?>
-                                <tr>
-                                    <td><?php echo $type[0] ?></td>
-                                    <td><?php echo $type[1] ?></td>   
-                                </tr>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                        <div class="div-catyp">
+                            <div class="shadow-boxcatyp"></div>
+                            <table id="tab-creaprod">
+                                <caption class="cap-creaprd">Types</caption>
+                                <thead>
+                                    <tr>
+                                        <th class="th-tab-creaprod">ID</th>
+                                        <th class="th-tab-creaprod">NOM</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbody-crea">
+                                <?php foreach($resultat2 as $type): ?>
+                                    <tr class="tr-tab-creatyp">
+                                        <td class="td-tabcrea-1"><?php echo $type[0] ?></td>
+                                        <td class="td-tabcrea-2"><?php echo $type[1] ?></td>   
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </section>
 <?php 
 
