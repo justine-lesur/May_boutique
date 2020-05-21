@@ -1,11 +1,3 @@
-<?php
-require "justine-class.php";
-$var = new user;
-
-$var->connect();
-?>
-
-
 <!doctype html>
 <html>
 <head>
@@ -28,6 +20,11 @@ include('header.php');
 		<input type="password" name="password" class="input" placeholder="Mot de passe" required/>
 		<input type="submit" name="valider" class="submit" value="Se connecter"/>
 	</form>
+<?php
+	require "justine-class.php";
+	$var = new user;
+	$var->connect();
+?>
 </section>
 <?php
 	include('footer.php');

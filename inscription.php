@@ -9,11 +9,7 @@
 <body>
 <section class="image-background">
 <?php
-	require "justine-class.php";
 	include('header.php');
-	$var = new user;
-
-	$var->inscription();
 ?>
 <h1 class="hashtag">#inscription</h1>
 </section>
@@ -26,6 +22,11 @@
 			<input type="password" name="repeatpassword"  class="input" placeholder="Confirmer le Mot de Passe*" required/>
 			<input type="submit" name="valider" class="submit" value="S'inscrire"/>
 		</form>
+<?php
+	require "justine-class.php";
+	$var = new user;
+	$var->inscription();
+?>
 	</section>
 <?php
 	include('footer.php');

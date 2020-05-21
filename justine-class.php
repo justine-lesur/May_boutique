@@ -40,15 +40,15 @@ session_start();
 							header('location: connexion.php');
 						
 						} else {
-						echo '<p>Ce pseudo est indisponible</p>';
+						echo "<p class='message-erreur'>Ce pseudo est indisponible</p>";
 					}
 						
 					} else {
-						echo '<p>Les deux mots de passe doivent être identiques</p>';
+						echo "<p class='message-erreur'>Les deux mots de passe doivent être identiques</p>";
 					}
 				
 				} else {
-					echo '<p>Veuillez saisir tous les champs</p>';
+					echo "<p class='message-erreur'>Veuillez saisir tous les champs</p>";
 				}
 		    }
 		}
@@ -81,11 +81,11 @@ session_start();
 							$_SESSION['id_droits']=$rows['id_droits'];
 							header("Location: index.php");
 					
-						} else echo "<p>Login ou Mot de passe incorrect</p>";
+						} else echo "<p class='message-erreur'>Login ou Mot de passe incorrect</p>";
 				
-					} else echo "<p>Login ou Mot de passe incorrect</p>";
+					} else echo "<p class='message-erreur'>Login ou Mot de passe incorrect</p>";
 			
-				} else echo "<p>Veuillez saisir tous les champs</p>";
+				} else echo "<p class='message-erreur'>Veuillez saisir tous les champs</p>";
 			}
 	 	}
 		
@@ -115,14 +115,14 @@ session_start();
 					$rows2 = mysqli_fetch_assoc($reg2);
 					if(!password_verify($_POST['motdepasse'], $rows2['password']))
 					{
-						echo "<p>Pseudo ou Mot de passe incorrect</p>";	
+						echo "<p class='message-erreur'>Pseudo ou Mot de passe incorrect</p>";	
 					}
 					$query3 = "UPDATE utilisateurs SET login = '".$login."' WHERE login = '".$_SESSION['login']."'";
 						$reg3 = mysqli_query($connect, $query3);
 					
 			
 				} else {
-					echo "<p>Veuillez saisir tous les champs</p>";
+					echo "<p class='message-erreur'>Veuillez saisir tous les champs</p>";
 				}
 	
 			} 
@@ -139,7 +139,7 @@ session_start();
 
 		if(empty($newpassword) || empty($ancienpassword)) 
 		{
-			echo "<p>Veuillez saisir tous les champs</p>";
+			echo "<p class='message-erreur'>Veuillez saisir tous les champs</p>";
 		}
 
 			$connect = mysqli_connect($this->host, $this->username, $this->password, $this->db);
@@ -150,7 +150,7 @@ session_start();
 
 			if(!password_verify($ancienpassword, $rows['password']))
 			{
-				echo "<p>Mot de passe incorrect</p>";
+				echo "<p class='message-erreur'>ot de passe incorrect</p>";
 			}
 
 			$query2 = "UPDATE utilisateurs SET password = '".password_hash($newpassword, PASSWORD_DEFAULT)."' WHERE login = '".$_SESSION["login"]."'";
