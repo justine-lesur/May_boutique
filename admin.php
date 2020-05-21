@@ -31,7 +31,7 @@ $resultat = mysqli_fetch_all($query);
     <body>
 <?php
 
-// if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
+if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
         <a href="index.php"><img src="img/53494.png" alt="leave" class="leave-admin"></a>
         <main class="main-container">
             <section class="sec-container">
@@ -80,9 +80,31 @@ $resultat = mysqli_fetch_all($query);
             </section>
         </main>
 <?php
-ob_end_flush();
-// endif; ?>
 
+elseif(empty($_SESSION["login"]) || $_SESSION["id_droits"] == 1): ?>
+    <section class="bg-error">
+        <article class="art-error">
+            <div class="div-errtitle">
+                <h4 class="error-title">Vous n'avez pas accès à cette page</h4>
+            </div>
+            <div class="div-erradm">
+                <p class="error-admin"><?php echo "Vous devez être connecté en tant qu'administrateur pour accéder a cette page"; ?></p>
+            </div>
+            <div class="div-lienerr">
+                <a href="index.php" class="lien-error">Cliquez ici</a>
+            </div>
+            <div class="div-erradm2">  
+                <p class="error-admin">pour revenir a la page d'accueil.</p>
+            </div>
+        </article>
+    </section>
+<?php endif;
+
+ob_end_flush();
+
+if(isset($erreur)): ?>
+    <div id=""><?php echo $erreur ?></div>
+<?php endif; ?>
     </body>
 </html>
 

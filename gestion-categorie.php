@@ -168,11 +168,28 @@ endforeach;
         </main>
 <?php
 
-elseif(empty($_SESSION["login"]) || $_SESSION["id_droits"] == 1):
+elseif(empty($_SESSION["login"]) || $_SESSION["id_droits"] == 1): ?>
+    <section class="bg-error">
+        <article class="art-error">
+            <div class="div-errtitle">
+                <h4 class="error-title">Vous n'avez pas accès à cette page</h4>
+            </div>
+            <div class="div-erradm">
+                <p class="error-admin"><?php echo "Vous devez être connecté en tant qu'administrateur pour accéder a cette page"; ?></p>
+            </div>
+            <div class="div-lienerr">
+                <a href="index.php" class="lien-error">Cliquez ici</a>
+            </div>
+            <div class="div-erradm2">  
+                <p class="error-admin">pour revenir a la page d'accueil.</p>
+            </div>
+        </article>
+    </section>
+<?php endif;
 
-    $erreur = "Vous devez être connecté en tant qu'administrateur pour accéder a cette page";
-
-endif;
+if(isset($erreur)): ?>
+    <div id=""><?php echo $erreur ?></div>
+<?php endif;
 
 ob_end_flush(); 
 

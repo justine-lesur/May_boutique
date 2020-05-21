@@ -217,7 +217,7 @@ session_start();
 				<form action="panier.php" method="post">
 					<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"/>
 					<h4 class="taille-quantite">Taille</h4>
-					<select name="taille" id="taille" class="selection">
+					<select name="taille" id="taille" class="selection2">
 						<option class="taille" value="S">Taille S</option>
 					 	<option class="taille" value="M">Taille M</option>
 						<option class="taille" value="L">Taille L</option>    

@@ -4,6 +4,12 @@ session_start();
 
 $connexion = mysqli_connect("localhost","root","","boutique");
 
+if(empty($_GET["cat"]) && empty($_GET["type"]) && empty($_GET["q"])){
+    header("Location: index.php");
+}
+
+
+
 if(!isset($_GET["q"])){
     $requete_cat = "SELECT * FROM categories WHERE id ='".$_GET["cat"]."'";
     $query_cat = mysqli_query($connexion,$requete_cat);

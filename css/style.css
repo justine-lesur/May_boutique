@@ -4,9 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
 
 
-
+/* /////////// */
 
 body, html{
     height: 100%;
@@ -120,7 +121,81 @@ body, html{
 
                                         /*/////////// ADMIN //////////*/
 
+.bg-error{
+    height: 100%;
+    background: url(../img/404.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-family: 'Montserrat', sans-serif;
+}
 
+.div-errtitle{
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.error-title{
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 40px;
+    color: #4c4c4c;
+}
+
+.div-lienerr{
+    height: 26%;
+    display: flex;
+    align-items: center;
+    width: 73%;
+    justify-content: center;
+}
+
+.lien-error{
+    border: 3px inset #f9763e;
+    padding: 11px 59px;
+    text-decoration: none;
+    color: #383535;
+    font-size: 26px;
+}
+
+.lien-error:hover{
+    border: 3px inset darkred;
+    color: #eee;
+    background-color: #a9a8a8;
+    text-shadow: 1px 1px 3px black;
+}
+
+.art-error{
+    width: 49%;
+    height: 60%;
+    background-color: #F3F3F5;
+    box-shadow: 16px 9px 13px black;
+}
+
+.div-erradm{
+    height: 9%;
+    display: flex;
+    align-items: center;
+    width: 95%;
+    justify-content: flex-end;
+}
+
+.div-erradm2{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    height: 6%;
+    align-items: center;
+}
+
+.error-admin{
+    margin: 0;
+    font-size: 21px;
+    color: #333232;
+}
 
 .leave-admin{
     position: absolute;
@@ -1584,10 +1659,16 @@ label[for=ts],label[for=tm],label[for=tl]{
 	font-size: 2em;
 }
 
-.selection {
-	width: 20em;
-	height: 3em;
-	text-align: center;
+.selection{
+    width: 20em;
+    height: 3em;
+    padding-left: 120px;
+}
+
+.selection2{
+    width: 20em;
+    height: 3em;
+    padding-left: 103px;
 }
 
 .taille {
@@ -1609,7 +1690,7 @@ label[for=ts],label[for=tm],label[for=tl]{
 
 .commentaires {
 	text-align: center;
-	width: 100vw;
+	width: 99vw;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
