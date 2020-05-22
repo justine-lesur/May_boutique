@@ -2,6 +2,8 @@
 
 session_start();
 
+date_default_timezone_set("Europe/Brussels"); //définit le décalage horaire à appliquer par défaut de toutes les fonctions de date et heure en PHP
+
 $connexion = mysqli_connect("localhost","root","","boutique");
 $requete = "SELECT * FROM categories";
 $query = mysqli_query($connexion,$requete);
@@ -14,6 +16,17 @@ $query = mysqli_query($connexion,$requete);
 $resultat2 = mysqli_fetch_all($query);
 
 
+/* ///// REQUETE CONDITIONS CATS & TYPES ///// */
+
+$connexion = mysqli_connect("localhost","root","","boutique");
+$req_rowcat = "SELECT count(id) FROM categories";
+$que_rowcat = mysqli_query($connexion,$req_rowcat);
+$row_cat = mysqli_fetch_all($que_rowcat);
+
+$connexion = mysqli_connect("localhost","root","","boutique");
+$req_rowtype = "SELECT count(id) FROM types";
+$que_rowtype = mysqli_query($connexion,$req_rowtype);
+$row_type = mysqli_fetch_all($que_rowtype);
 
 /////////// 
 
@@ -76,12 +89,12 @@ if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
 
                             <div class="box-catypri">
                                 <label for="id_categorie" class="inpcenter lab-crea">Catégorie</label>
-                                <input type="number" name="id_categorie" class="inp-creacaty"  required>
+                                <input type="number" name="id_categorie" class="inp-creacaty" min="1"  required>
                             </div>
 
                             <div class="box-catypri">
                                 <label for="id_type" class="inpcenter lab-crea">Type</label>
-                                <input type="number" name="id_type" class="inp-creacaty" required>
+                                <input type="number" name="id_type" class="inp-creacaty" min="1" required>
                             </div>
 
                             <div id="box-img">
@@ -96,7 +109,7 @@ if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
 
                             <div class="box-catypri">
                                 <label for="prix" class="inpcenter lab-crea">Prix</label>
-                                <input type="number" name="prix" id="inprice" placeholder="0 €" step="0.01" required>
+                                <input type="number" name="prix" id="inprice" placeholder="0 €" step="0.01" min="0" max="999" required>
                             </div>
 
                             <div id="box-date">
@@ -110,17 +123,17 @@ if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
                                 <div id="box-labinp">
                                     <div>
                                         <label for="ts" class="inpcenter">S</label>
-                                        <input type="number" name="ts" class="inpsize" placeholder="0" required>
+                                        <input type="number" name="ts" class="inpsize" placeholder="0" min="0" required>
                                     </div>
 
                                     <div>
                                         <label for="tm" class="inpcenter">M</label>
-                                        <input type="number" name="tm" class="inpsize" placeholder="0" required>
+                                        <input type="number" name="tm" class="inpsize" placeholder="0" min="0" required>
                                     </div>
 
                                     <div>
                                         <label for="tl" class="inpcenter">L</label>
-                                        <input type="number" name="tl" class="inpsize" placeholder="0" required>
+                                        <input type="number" name="tl" class="inpsize" placeholder="0" min="0" required>
                                     </div>
                                 </div>
                             </div>
@@ -220,13 +233,35 @@ if(isset($_POST["creer"])):
     $taille2 = filter_input(INPUT_POST,"tm",FILTER_VALIDATE_INT);
     $taille3 = filter_input(INPUT_POST,"tl",FILTER_VALIDATE_INT);
     $achat = filter_input(INPUT_POST,"achat",FILTER_VALIDATE_INT);
+    $current_date = date("Y-m-d H:i:s");
+    
+
 
     if(!empty($name) && !empty($cat) && !empty($type) && !empty($img) && !empty($text) && !empty($price) && !empty($date) && !empty($taille1) && !empty($taille2) && !empty($taille3)):
-
-        $connexion = mysqli_connect("localhost","root","","boutique");
-        $requete = "INSERT INTO articles VALUES (null,'".$name."',$cat,$type,'".$img."','".$text."',$price,'".$date."',$taille1,$taille2,$taille3,0)";
-        // echo $requete;
-        $query = mysqli_query($connexion,$requete);
+        if(strlen($name) > 3){
+            if($cat > 0 && $type > 0 && $cat <= $row_cat && $type <= $row_type){
+                if($price > 0){
+                    if($date > $current_date){
+                        if($taille1 >= 0 && $taille2 >= 0 && $taille3 >= 0){
+                            $connexion = mysqli_connect("localhost","root","","boutique");
+                            $requete = "INSERT INTO articles VALUES (null,'".$name."',$cat,$type,'".$img."','".$text."',$price,'".$date."',$taille1,$taille2,$taille3,0)";
+                            // echo $requete;
+                            $query = mysqli_query($connexion,$requete);
+                        } else {
+                            $erreur = "La quantité doit être supérieur ou égale a 0";
+                        }
+                    } else {
+                        $erreur = "Vous ne pouvez pas entrer une date antérieur";
+                    }
+                } else {
+                    $erreur = "Le prix doit être supérieur a 0";
+                }
+            } else {
+                $erreur = "Choisissez une catégorie ou un type existant";
+            }
+        } else {
+            $erreur = "Le nom doit être supérieur a 3 caractères";
+        }
 
     else:
 

@@ -41,7 +41,7 @@ $resultat = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                 <label for="nom" class="labnp">Modifier le nom</label>
                                 <input type="text" name="nom" value="<?php echo $resultat[0]["nom"] ?>" class="inp-prod">
                                 <label for="prix" class="labnp">Modifier le prix</label>
-                                <input type="number" name="prix" step="0.01" value="<?php echo $resultat[0]["prix"] ?>" class="inp-prod">
+                                <input type="number" name="prix" step="0.01" min="0" value="<?php echo $resultat[0]["prix"] ?>" class="inp-prod">
                                 <input type="submit" name="modifier" value="Modifier" id="inp-modif-prod">
                             </form>
                         </section>
@@ -69,10 +69,18 @@ elseif(empty($_SESSION["login"]) || $_SESSION["id_droits"] == 1): ?>
 if(isset($_POST["modifier"])){
     $name = filter_input(INPUT_POST,"nom",FILTER_SANITIZE_SPECIAL_CHARS);
     $price = filter_input(INPUT_POST,"prix",FILTER_VALIDATE_INT);
-    $connexion = mysqli_connect("localhost","root","","boutique");
-    $requete = "UPDATE articles SET nom ='".$name."', prix = $price WHERE id = '".$idproduit."'";
-    $query = mysqli_query($connexion,$requete);
-    header("Location:admin.php");
+    if(strlen($name) > 3){
+        if($price > 0 && $price < 999){
+            $connexion = mysqli_connect("localhost","root","","boutique");
+            $requete = "UPDATE articles SET nom ='".$name."', prix = $price WHERE id = '".$idproduit."'";
+            $query = mysqli_query($connexion,$requete);
+            header("Location:admin.php");
+        } else {
+            $erreur = "Le prix ne peut pas être inférieur ou égale a 0";
+        }
+    } else {
+        $erreur = "Veuillez entrer un nom supérieur a 3 caractères";
+    }
 }
 
 if(isset($erreur)): ?>
