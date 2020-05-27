@@ -389,6 +389,36 @@ body, html{
 
 
 
+                                        /*////////// DELETE PRODUITS //////////*/
+
+
+#del-box-title{
+    padding: 4%;
+    margin-bottom: 5%;
+}
+
+#title-admin2{
+    text-align: center;
+    font-family: 'Poiret One', cursive;
+    font-size: 30px;
+    margin: 0;
+    font-weight: bold;
+}
+
+#title-admin2::before{
+    content: "- ";
+    position: relative;
+    color: orange;
+    top: 5px;
+}
+
+#title-admin2::after{
+    content: " -";
+    position: relative;
+    color: fuchsia;
+    top: 5px;
+    height: 5px;
+}
 
 
                                         /*////////// TOP VENTES //////////*/
@@ -817,7 +847,6 @@ label[for=add-categorie], label[for=add-types]{
 
 
 
-
 #tab-creprod{
     display: flex;
     flex-direction: column;
@@ -965,7 +994,7 @@ label[for=ts],label[for=tm],label[for=tl]{
 }
 
 #inp-img{
-    padding: 5% 0 1% 0;
+    padding: 2% 0 1% 0;
 }
 
 .inp-creacaty{
@@ -1077,7 +1106,18 @@ label[for=ts],label[for=tm],label[for=tl]{
     background-color: white;
 }
 
-
+#create-error{
+    position: absolute;
+    top: 25%;
+    background-color: #eb3706;
+    width: 42.6%;
+    text-align: center;
+    z-index: 100;
+    left: 28.7%;
+    padding: 0.5% 0;
+    font-size: 21px;
+    color: white;
+}
 
 
 

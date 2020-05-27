@@ -238,7 +238,7 @@ if(isset($_POST["creer"])):
 
 
     if(!empty($name) && !empty($cat) && !empty($type) && !empty($img) && !empty($text) && !empty($price) && !empty($date) && !empty($taille1) && !empty($taille2) && !empty($taille3)):
-        if(strlen($name) > 3){
+        if(strlen($name) >= 3){
             if($cat > 0 && $type > 0 && $cat <= $row_cat && $type <= $row_type){
                 if($price > 0){
                     if($date > $current_date){
@@ -260,18 +260,15 @@ if(isset($_POST["creer"])):
                 $erreur = "Choisissez une catégorie ou un type existant";
             }
         } else {
-            $erreur = "Le nom doit être supérieur a 3 caractères";
+            $erreur = "Le nom doit être supérieur ou égale a 3 caractères";
         }
-
     else:
-
         $erreur = "tous les champs doivent être completés";
-
     endif;
 endif;
 
 if(isset($erreur)): ?>
-    <div id=""><?php echo $erreur ?></div>
+    <div id="create-error"><?php echo $erreur ?></div>
 <?php endif;
 
 ?>
