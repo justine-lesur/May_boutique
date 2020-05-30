@@ -347,10 +347,20 @@ body, html{
 #form-editadm{
     display: flex;
     flex-direction: column;
-    padding: 4%;
+    padding: 4% 8%;
     border: 4px groove black;
     width: 12%;
     background-color: #ff8c000d;
+}
+
+#error-ediadm{
+    position: absolute;
+    top: 172px;
+    left: 622px;
+    font-weight: bold;
+    background-color: #fd4040;
+    padding: 0.5%;
+    color: white;
 }
 
 .labnp{
@@ -1172,6 +1182,10 @@ label[for=ts],label[for=tm],label[for=tl]{
     height: 30vh;
 }
 
+#main-acc3{
+    height: 20.9%;
+}
+
 .img-produits{
     height: 45em;
     padding: 2em 2em 0.5em;
@@ -1242,6 +1256,15 @@ label[for=ts],label[for=tm],label[for=tl]{
     color: white;
     font-size: 20px;
     padding: 10px;
+}
+
+#erreur-acc3{
+    font-family: "Circular-book";
+    color: black;
+    font-size: 20px;
+    padding: 1.38% 0;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 
@@ -1501,7 +1524,7 @@ label[for=ts],label[for=tm],label[for=tl]{
  	display: flex;
 	flex-direction: column;
 	text-align: center;
-	width: 100vw;
+	width: 99vw;
 	justify-content: center;
 	align-items: center;
 	padding-top: 4vh;

@@ -67,7 +67,7 @@ if(!empty($_SESSION["login"]) && $_SESSION["id_droits"] == 10): ?>
 
                                 <tr id="admin-prodtr">
                                     <td class="tdmin" id="tdmin1"><?php echo $value[1] ?></td>
-                                    <td  class="tdmin" id="tdmin2"><?php echo $value[6]?> €</td>
+                                    <td  class="tdmin" id="tdmin2"><?php echo number_format((float)$value[6],2,".","");?> €</td>
                                     <td  class="tdmin tdmin-model"><a href="edit-admin.php?idprod=<?php echo $value[0] ?>" class="admin-dedien"><img src="img/modif.png" alt="modifier" id="admin-edit-img"></a></td>
                                     <td  class="tdmin tdmin-model"><a href="delete-produit.php?id=<?php echo $value[0] ?>" class="admin-dedien"><img src="img/Button-Delete-icon.png" alt="delete" id="admin-del-img"></a></td>
                                 </tr>

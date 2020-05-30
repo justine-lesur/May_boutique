@@ -4,11 +4,6 @@ session_start();
 
 $connexion = mysqli_connect("localhost","root","","boutique");
 
-if(empty($_GET["cat"]) && empty($_GET["type"]) && empty($_GET["q"])){
-    header("Location: index.php");
-}
-
-
 
 if(!isset($_GET["q"])){
     $requete_cat = "SELECT * FROM categories WHERE id ='".$_GET["cat"]."'";
@@ -36,6 +31,12 @@ if(isset($_GET['q']) && $_GET['q'] == ""){
     $error = "Vous devez entrer votre requete dans la barre de recherche";   
 }
 
+if(isset($_GET['q']) && empty($resultat_art)){
+    $q = filter_input(INPUT_GET,"q",FILTER_SANITIZE_SPECIAL_CHARS);
+    if(strlen($q) >= 3){
+        $error = "Aucun résultat ne correspond à cette recherche";
+    }
+}
 
 
                                         /*/////////// REQUETE AFFICHER NOM PRODUIT BANDEROLLE //////////*/
@@ -139,8 +140,11 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
                             </div>
                         </a>
                     <?php endforeach; ?>
+                    <?php if(isset($error)): ?>
+                <div id="erreur-acc3"><?php echo $error; ?></div>
+            <?php endif; ?>  
                 </section>
-            </section> 
+            </section>
         </main>
 <?php else: ?>
 	<section class="accueil2">

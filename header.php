@@ -34,12 +34,8 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
 				<nav id="menu">
 					<ul class="ul">
 						<li class="li"> <a class="header-link" href="index.php">Accueil</a></li>
-						<?php
-							if (!isset($_SESSION['login']))
-							{
-						?>
 							<?php foreach($res_cat as $categories):
-					
+				
 								// var_dump($categories);
 								$idcat = $categories[0];
 								$namecat = $categories[1]; ?>
@@ -59,15 +55,20 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
 									</ul>
 								</li>		  
 							<?php endforeach; ?>
+						<?php
+							if (!isset($_SESSION['login']))
+							{
+						?>	
 								<li class="li"><a class="header-link" href="inscription.php">Inscription</a></li>
 								<li class="li"><a class="header-link" href="connexion.php">Connexion</a></li>
-						
 						<?php
 							}
 							else
 							{
 								
-						?>			
+						?>
+								
+									
 								<li class="li"><a class="header-link" href="mon-profil.php">Profil</a></li>
 
 								<li class="li"><a class="header-link" href="panier.php">Panier</a></li>
