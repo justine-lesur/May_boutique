@@ -750,7 +750,7 @@ label[for=add-categorie], label[for=add-types]{
     /* margin-top: 7%; */
     border: 1px groove black;
     width: 50%;
-    margin: 7% auto;
+    margin: 7% 0;
     height: 200%;
     justify-content: center;
     align-items: center;
@@ -948,17 +948,63 @@ label[for=ts],label[for=tm],label[for=tl]{
     transform: scale(0.9);
 }
 
-#tab-creacat{
-    position: relative;
-    top: 400px;
-    left: 140px;
+.shadow-boxcatyp{
+    height: 41%;
 }
 
-#tab-creaprod{
-    position: relative;
-    top: -1400px;
-    left: 1360px;
+#sec-incont2{
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    overflow: auto;
 }
+
+.cap-creaprd{
+    border-top: 3px ridge black;
+    padding: 7px 0 5px 0;
+    text-transform: uppercase;
+    color: #1d1d67;
+    font-weight: bold;
+    text-shadow: 1px 1px #b2d6ff12;
+}
+
+.div-catyp{
+    width: 10%;
+}
+
+#tab-creacat, #tab-creaprod{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.th-tab-creaprod{
+    border-top: 3px groove #a7a4c76e;
+    border-bottom: 3px groove #a7a4c76e;
+    background-color: #4b556114;
+    padding: 4px 0;
+}
+
+.tbody-crea{
+    text-align: center;
+    font-weight: bold;
+}
+
+.td-tabcrea-1{
+    border-left: 1px solid #99a2ad94;
+    border-bottom: 1px solid #99a2ad94;
+    background-color: #b2d6ff3d;
+}
+
+.td-tabcrea-2{
+    border-right: 1px solid #99a2ad94;
+    border-bottom: 1px solid #99a2ad94;
+    padding: 5px 0;
+    background-color: white;
+}
+
+
+
+
 
 
                                         /*////////// PRODUITS //////////*/
@@ -1114,13 +1160,13 @@ label[for=ts],label[for=tm],label[for=tl]{
 }
 
 .accueil {
-	background-image: url("img-css/fond2.png");
+	background-image: url("img-css/fond4.jpg");
 	height: 105vh;
 	background-size: 100%;
 }
 
 .image-background {
-	background-image: url("img-css/fond.png");
+	background-image: url("img-css/fond2.png");
 	height: 70vh;
 	background-size: 100%;
 }
@@ -1185,7 +1231,7 @@ label[for=ts],label[for=tm],label[for=tl]{
  }
 
 #menu .li .header-link:hover {
-     color:#FFD700;
+     color: black;
      /* text-shadow:1px 1px 3px black; */
 }/* CSS Document */
 
