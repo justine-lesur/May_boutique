@@ -22,7 +22,7 @@ $var = new user;
 	</section>
 	<section class="formulaire">
 		<form method="post">
-			<section>
+			<section class="modif">
 			<?php
 				if(!isset($_SESSION['login']))
 				{
@@ -44,9 +44,11 @@ $var = new user;
 		</form>
 		<?php $var->updatelogin();?>
 		</section>
+		</section>
 		
-		<section>
+	<section class="formulaire">	
 		<form method="post">
+			<section class="modif">
 			<h1 class="modifier">Modifier mon mot de passe</h1>
 			<label>
 				<input type="password" name="ancienmotdepasse" class="input" placeholder="Ancien mot de passe*" required/><br/>
@@ -61,7 +63,7 @@ $var = new user;
 		<?php $var->updatepassword();?>
 		</section>
 	</section>
-		<section>
+		<section class="modif">
 			<h2 class="modifier">Historique d'achats</h2>
 			<a href="#" id="locat"></a>
 			<table class="class-table">

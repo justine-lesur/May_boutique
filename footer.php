@@ -4,7 +4,7 @@
 // var_dump($categories);
 	    $idcat = $categories[0];
         $namecat = $categories[1]; ?>
-            <ul class="ul">
+            <ul class="ul-footer">
                 <li class="li foot-li-cat"><a href="produits.php?cat=<?php echo $idcat ?>" class="footer-link"><?php echo strtoupper($namecat)."<br/>" ?></a></li>
                 <?php $connexion = mysqli_connect("localhost","root","","boutique") ?>
                 <?php $requete_typ = "SELECT DISTINCT a.id_type, t.nom FROM articles a INNER JOIN types t ON a.id_type = t.id WHERE id_categorie = '".$idcat."'";
@@ -23,7 +23,7 @@
                 if (isset($_SESSION['login']))
                     {
                 ?>
-                    <ul class="ul">
+                    <ul class="ul-footer">
 					    <li  class="li foot-li-cat"><a href="mon-profil.php" class="footer-link">PROFIL</a></li>
      				    <li  class="li"><a href="mon-profil.php#locat" class="footer-link">Historique d'achats</a></li>
                         <li  class="li"><a href="deconnexion.php" class="footer-link">Se Déconnecter</a></li>
@@ -32,5 +32,3 @@
                     }
                 ?>
         </footer>
-    </body>
-</html>

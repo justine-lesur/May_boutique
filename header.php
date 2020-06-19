@@ -95,6 +95,7 @@ if(isset($_GET["cat"]) && isset($_GET["type"])){
 						?>
 					</ul>
 				</nav>
+
 			</article>
 	  	</section>
 	</header>

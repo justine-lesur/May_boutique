@@ -53,3 +53,6 @@ $newfan = $fan->fanarticles();
 	<?php
 		include('footer.php');	
 	?>
+	
+	</body>
+</html>
