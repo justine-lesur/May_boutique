@@ -1178,6 +1178,8 @@ label[for=ts],label[for=tm],label[for=tl]{
 .image-background2 {
 	background-image: url("img-css/fond3.png");
 	background-size: 100%;
+	height: 100vh;
+	background-repeat: no-repeat;
 }
 
 
@@ -1703,7 +1705,7 @@ footer {
 	background-image: url("img-css/fond4.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 100%;
+	height: 85vh;
 	width: 100%;
 }
 
@@ -1711,18 +1713,18 @@ footer {
 	background-image: url("img-css/fond2.png");
 	background-size: 100%;
 	background-size: cover;
-	height: 70vh;
+	height: 80vh;
 	width: 100%;
 }
 
 .image-background2 {
 	background-image: url("img-css/fond3.png");
-	background-size: 100%;
+	height: 70vh;
 	background-size: cover;
 }
 	
 .accueil {
-	height: 80vh;	
+	height: 85vh;	
 }
 
 .all-articles {
@@ -1789,6 +1791,41 @@ footer {
 	padding-top: 70px;
 	padding-right: 0px;
 	margin: 0px;
+}
+	
+.hashtag2 {
+	font-family: "Circular";
+	margin: 0px;
+	color: white;
+	font-size: 6em;
+	display: flex;
+	justify-content: flex-start;
+	padding-top: 15vh;
+	padding-left: 10vw;
+	padding-right: 0px;	
+}
+	
+.all-produits {
+	display: flex;
+	justify-content: center;
+}
+	
+.one-produit2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 10vh;
+	text-align: center;
+}
+	
+.all-description {
+	font-family: "Circular-book";
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 30px;	
+	width: 60vw;
+	text-align: center;
 }
 
 #but-search-q {
@@ -1910,7 +1947,8 @@ footer {
 	align-items: center;
 	padding-top: 0px;
 	height: 25vh;
-	width: 35vw;
+	width: 30vw;
+	padding-right: 5vw;
 }
 
 #menu .ul {
@@ -2023,6 +2061,155 @@ footer {
 	margin-bottom: 50px;
 }
 	
+.selection {
+	display: flex;
+	justify-content: center;
+	font-size: 1em;
+	text-align: center;
+	border-color: grey;
+	width: 20vw;
+}
+	
+#quantite {
+	height: 3vh;
+}
+
+.taille {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 4em;
+	font-family: "Circular-book";
+	border-color: grey;
+}
+	
+.prix {
+	font-family: "Circular";
+	font-size: 1.5em;	
+}
+
+.price {
+	font-family: "Circular";
+	font-size: 1.5em;
+	margin-top: 2vh;
+}
+	
+.submit2 {
+	font-family: "Circular-book";
+	background-color: #0C0C0C;
+	font-size: 30px;
+	color: white;
+	height: 6vh;
+	width: 26vw;
+}
+	
+.submit3 {
+	font-family: "Circular-book";
+	background-color: #0C0C0C;
+	font-size: 30px;
+	color: white;
+	height: 6vh;
+	width: 23.3vw;
+	margin-top: 5vh;
+}
+
+.commentaires {
+	text-align: center;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+	
+.titre-produit {
+	font-family: "Circular";
+	text-align: center;
+	font-size: 2.2em;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+.mon-commentaire {
+	text-align: center;
+	background-color: #F1F1F1;
+	width: 90vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+	
+.description2 {
+	font-family: "Circular-book";
+	font-size: 1.2em;	
+	width: 70vw;
+	padding-top: 5vh;
+	height: 8vh;
+	border-color: grey;
+	text-align: center;
+}
+
+.description3 {
+	font-family: "Circular-book";
+	font-size: 1.2em;	
+	width: 70vw;
+	padding-top: 1vh;
+	height: 8vh;
+	border-color: grey;
+	text-align: center;
+}
+	
+.radio {
+	width: 30px;
+	height: 30px;
+}
+	
+.moyen-paiement {
+	display: flex;
+	flex-direction: column;
+	padding-top: 3vh;
+}
+
+.taille-quantite {
+	font-family: "Circular";
+	font-size: 35px;
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+}
+	
+.valider-paiement {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 3vh;
+}
+	
+.valider-panier {
+	padding-top: 5vh;
+	width: 23.3vw;
+}
+
+.message-erreur {
+	font-family: "Circular-book";
+	font-size: 1.2em;	
+	padding-top: 3vh;
+	border-color: red;
+	text-align: center;
+	color: red;
+}
+
+.message-erreur2 {
+	font-family: "Circular-book";
+	font-size: 1.2em;	
+	padding-top: 9vh;
+	border-color: red;
+	text-align: center;
+	color: red;
+}
+	
 #menu .ul .li:hover .ul {
 	display:none;
 	padding: 0px;
@@ -2056,7 +2243,7 @@ ul, menu, dir {
 }
 
 .ul-footer {
-	width: 30vw;
+	width: 40vw;
 	font-size: 36px;		
 }	
 	
