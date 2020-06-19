@@ -5,14 +5,23 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
 
 
+@font-face {
+	font-family: "Circular";
+	src: url("circular.ttf") format("truetype");
+}
 
+@font-face {
+	font-family: "Circular-book";
+	src: url("CircularStd-Book.ttf") format("truetype");
+}
 
 
 body, html{
-    height: 100%;
-    width: 100%;
     margin: 0;
-    padding: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 
@@ -21,12 +30,12 @@ body, html{
                                         /*////////// NAV //////////*/
 
 
-
+@media only screen and (min-width: 1680px) and (max-width: 1920px) {
 
 
 .main-container{
     background-color: #213b58;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -115,12 +124,12 @@ body, html{
     background-color: #d1fff1;
 }
 
-
+}
 
 
                                         /*/////////// ADMIN //////////*/
 
-
+@media only screen and (min-width: 1680px) and (max-width: 1920px) {
 
 .leave-admin{
     position: absolute;
@@ -253,14 +262,14 @@ body, html{
 }
 
 
-
+}
 
 
                                         /*////////// EDIT ADMIN //////////*/
 
 
 
-
+@media only screen and (min-width: 1680px) and (max-width: 1920px) {
 
 #sec-for-edit{
     display: flex;
@@ -643,12 +652,12 @@ label[for=add-categorie], label[for=add-types]{
 
 
 
-
+}
 
                                         /*////////// COMMANDES //////////*/
 
 
-
+@media only screen and (min-width: 1281px) and (max-width: 1920px) {
 
 
 #tab-disp-com{
@@ -771,7 +780,6 @@ label[for=add-categorie], label[for=add-types]{
     height: 15%;
     border: 3px groove #a7a4c76e;
     justify-content: space-evenly;
-    margin: 0;
     background-color: #F6F7F7;
 }
 
@@ -1012,16 +1020,17 @@ label[for=ts],label[for=tm],label[for=tl]{
 
 .accueil2 {
 	height: 81vh;
+	width: 100%;
 	background-size: cover;
 }
 
 .maystore2{
     font-family: "Circular";
 	color: white;
-	font-size: 10em;
+	font-size: 9em;
 	display: flex;
 	justify-content: flex-end;
-	padding-right: 10vw;
+	padding-right: 5vw;
 }
 
 #form-search{
@@ -1131,7 +1140,7 @@ label[for=ts],label[for=tm],label[for=tl]{
 
 
 
-
+}
 
 
 
@@ -1149,37 +1158,32 @@ label[for=ts],label[for=tm],label[for=tl]{
 
                                             /*JUSTINE*/
 
-@font-face {
-	font-family: "Circular";
-	src: url("circular.ttf") format("truetype");
-}
-
-@font-face {
-	font-family: "Circular-book";
-	src: url("CircularStd-Book.ttf") format("truetype");
-}
+@media only screen and (min-width: 1281px) and (max-width: 1920px) {
 
 .accueil {
+	display: flex;
+	flex-direction: column;
 	background-image: url("img-css/fond4.jpg");
-	height: 105vh;
-	background-size: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	height: 100vh;
 }
 
 .image-background {
 	background-image: url("img-css/fond2.png");
-	height: 70vh;
 	background-size: 100%;
 }
 
 .image-background2 {
 	background-image: url("img-css/fond3.png");
-	height: 84vh;
 	background-size: 100%;
 }
 
 
 .may {
- 	height: 9em;
+ 	width: 30vw;
+    height: 100%;
 }
 
 .all-header {
@@ -1191,7 +1195,7 @@ label[for=ts],label[for=tm],label[for=tl]{
 .flex-end {
 	 display: flex;
 	 justify-content: flex-end;
-	 width: 90vw;
+	 width: 70vw;
 }
 
 .header-link {
@@ -1308,7 +1312,7 @@ label[for=ts],label[for=tm],label[for=tl]{
 }
 
 .articles-accueil {
-	height: 45em;
+	height: 40vw;
 	padding: 2em;
 }
 
@@ -1680,10 +1684,398 @@ footer {
     background-color: #111111;
     padding: 5vh 0;
     height: 25vh;
+	width: 100%;
 }
 
 .footer-link {
 	font-family: "Circular-book";
 	color: grey;
 	text-decoration: none;
+}
+
+}
+
+@media only screen and (max-width: 1280px) {
+
+.accueil {
+	display: flex;
+	flex-direction: column;
+	background-image: url("img-css/fond4.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+}
+
+.image-background {
+	background-image: url("img-css/fond2.png");
+	background-size: 100%;
+	background-size: cover;
+	height: 70vh;
+	width: 100%;
+}
+
+.image-background2 {
+	background-image: url("img-css/fond3.png");
+	background-size: 100%;
+	background-size: cover;
+}
+	
+.accueil {
+	height: 80vh;	
+}
+
+.all-articles {
+	padding-top: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+	
+.all-header {
+	display: flex;
+}
+	
+.articles-accueil {
+	height: 1100px;
+	width: 80vw;
+	padding-bottom: 50px;
+}
+
+.maystore {
+    font-family: "Circular";
+    color: white;
+    font-size: 8em;
+    display: flex;
+    justify-content: center;
+	padding-top: 200px;
+	padding-right: 0px;
+	margin: 0px;
+}
+	
+.hashtag {
+    font-family: "Circular";
+    color: white;
+    font-size: 8em;
+    display: flex;
+    justify-content: center;
+	padding-top: 100px;
+	padding-right: 0px;
+	margin: 50px;
+}
+	
+
+.trait {
+	display: flex;
+	justify-content: center;
+	width: 30em;
+	height: 0.5em;
+}
+	
+.trait2 {
+	display: flex;
+	justify-content: center;
+	width: 35em;
+	height: 0.5em;
+}
+
+	
+.maystore2 {
+    font-family: "Circular";
+	color: white;
+    font-size: 6em;
+    display: flex;
+    justify-content: center;
+	padding-top: 70px;
+	padding-right: 0px;
+	margin: 0px;
+}
+
+#but-search-q {
+    width: 70px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: none;
+    border-bottom: 2px solid black;
+}
+	
+#inp-q{
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 0 10px;
+	font-size: 35px;
+}
+	
+#img-search{
+    width: 40px;
+}
+	
+#form-search{
+    display: flex;
+    justify-content: center;
+    margin: 5% 0;
+}
+	
+.article-prod{
+    font-family: "Circular-book";
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    text-decoration: none;
+}
+	
+.section-prod{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+	
+.box-h4-pprod{
+    padding: 0 2em 4em 2em;
+    text-align: center;
+	font-family: "Circular";
+	text-decoration:none;
+    font-size: 50px;
+}
+	
+.title4-prod{
+    color: gray;
+    margin: 0;
+    padding: 0.5em;
+	text-decoration: none;
+}
+	
+.nouveautes {
+	font-family: "Circular";
+	text-align: center;
+	font-size: 4.5em;
+	margin-bottom: 0px;
+	padding-top: 2em;
+}
+	
+.produitsphares {
+	font-family: "Circular";
+	text-align: center;
+	font-size: 4.5em;
+	margin-bottom: 0px;
+	padding-top: 2em;
+}
+	
+.para-prod{
+    margin: 0;
+    color: black;
+    font-weight: bold;
+	text-decoration: none;
+}
+	
+.form-prodorder{
+    height: 5vh;
+	font-size: 35px;
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: center;
+}
+	
+.selectorder{
+    font-size: 35px;
+	height: 4vh;
+    background-color: white;
+    border: none;
+    border-bottom: 2px solid black;
+}
+	
+.but-trier{
+    font-family: "Circular-book";
+    height: 4vh;
+    font-size: 35px;
+    background-color: white;
+    border: none;
+    border-bottom: 2px solid black;
+}
+	
+.flex-end {
+	display: flex;
+	justify-content: flex-end;
+	height: 25vh;
+	width: 70vw;
+}
+
+#menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 0px;
+	height: 25vh;
+	width: 35vw;
+}
+
+#menu .ul {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding-top: 0px;
+}
+		
+.menu {
+	display: flex;
+	flex-direction: column;
+}
+
+
+#menu .ul .li .ul {
+ 	display:none;
+}
+	
+.li {
+	list-style-type: none;	
+	font-family: "Circular-book";
+	text-decoration: none;
+	color: white;
+}
+	
+.header-link {
+	font-size: 36px;
+	list-style-type: none;
+	margin: 0px;
+	width: 7vw;
+	color: white;
+	text-decoration: none;
+}
+	
+.accueil2 {
+	height: 60vh;
+	width: 100%;
+	background-size: cover;
+}
+
+	
+.inscription {
+	font-family: "Circular";
+	text-align: center;
+	font-size: 4em;
+	margin-bottom: 0px;
+	padding-top: 1em;
+	padding-bottom: 2vh;
+}
+	
+.modif {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+	
+.class-table {
+	padding-top: 2em;
+	display: flex;
+	justify-content: center;
+}
+
+.ligne-tableau {
+	font-family: "Circular";
+	padding: 2em;
+	font-size: 18px;
+}
+
+.haut {
+	background-color: #D8D8D8;	
+}
+
+.ligne-td {
+	font-family: "Circular-book";	
+	padding: 2em;
+	text-align: center;
+	background-color: #F4F4F4;	
+}
+	
+.modifier {
+	font-family: "Circular";
+	text-align: center;
+	font-size: 4em;
+	margin-bottom: 0px;
+	padding-top: 1em;
+	padding-bottom: 2vh;
+}
+	
+.submit {
+	width: 600px;
+	height: 150px;	
+	color: white;
+	font-size: 30px;
+	background-color: black;
+}
+	
+.foorm {
+	display: flex;
+	flex-direction: column;
+}
+	
+.input {
+	border-color: #DCDCDC;
+	font-family: "Circular-book";
+	text-align: center;
+	width: 600px;
+	height: 100px;
+	font-size: 35px;
+	margin-bottom: 50px;
+}
+	
+#menu .ul .li:hover .ul {
+	display:none;
+	padding: 0px;
+ }
+#menu .li:hover .ul .li {
+ 	display: none;
+	float: none;
+ }
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
+.may {
+	width: 30vw;
+	height: 130px;
+	padding-top: 2vh;
+}
+	
+.header-link {
+	font-size: 50px;
+	list-style-type: none;
+	margin: 0px;
+	width: 7vw;
+}
+
+.ul-footer {
+	width: 30vw;
+	font-size: 36px;		
+}	
+	
+footer {
+	height: 110vh;
+	display: flex;
+	flex-direction: column;
+	margin-top: 10vh;
+	align-items: center;
+    background-color: #111111;
+    padding: 5vh 0;
+	width: 100%;
+}
+	
+.footer-link {
+	font-family: "Circular-book";
+	color: grey;
+	text-decoration: none;
+	font-size: 50px;
+}
+	
 }
